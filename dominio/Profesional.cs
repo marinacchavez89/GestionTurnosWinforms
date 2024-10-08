@@ -8,6 +8,7 @@ namespace dominio
 {
     public class Profesional
     {
+        public int IdProfesional { get; set; }
         public int Matricula {  get; set; }
         public Especialidad Especialidad { get; set; }
         public float Honorario { get; set; }
