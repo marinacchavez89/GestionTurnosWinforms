@@ -37,6 +37,7 @@ namespace negocio
                     aux.Dni = (int)datos.Lector["DNI"];
                     aux.Cobertura = new Cobertura();
                     aux.Cobertura.IdCobertura = (int)datos.Lector["idCobertura"];
+                    
 
                     lista.Add(aux);
 

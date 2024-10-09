@@ -1,6 +1,6 @@
 ﻿namespace GestionTurnos
 {
-    partial class Form1
+    partial class frmPacientes
     {
         /// <summary>
         /// Required designer variable.
@@ -40,15 +40,16 @@
             this.dgvPacientes.Size = new System.Drawing.Size(503, 187);
             this.dgvPacientes.TabIndex = 0;
             // 
-            // Form1
+            // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvPacientes);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "frmPacientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Administrar Pacientes";
+            this.Load += new System.EventHandler(this.frmPacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.ResumeLayout(false);
 

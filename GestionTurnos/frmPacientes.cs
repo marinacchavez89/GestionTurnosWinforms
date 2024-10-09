@@ -12,19 +12,25 @@ using System.Windows.Forms;
 
 namespace GestionTurnos
 {
-    public partial class Form1 : Form
+    public partial class frmPacientes : Form
     {
         private List<Paciente> listaPaciente;
-        public Form1()
+        public frmPacientes()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmPacientes_Load(object sender, EventArgs e)
         {
             PacienteNegocio negocio = new PacienteNegocio();
             listaPaciente = negocio.listar();
             dgvPacientes.DataSource = listaPaciente;
+            ocultarColumnas();
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvPacientes.Columns["Activo"].Visible = false;
         }
     }
 }
