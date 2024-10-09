@@ -12,5 +12,10 @@ namespace dominio
         public string Descripcion {  get; set; }
         public int PorcentajeCobertura { get; set; }
         public bool Activo { get; set; }
+
+        public override string ToString()
+        {
+            return IdCobertura.ToString();
+        }
     }
 }

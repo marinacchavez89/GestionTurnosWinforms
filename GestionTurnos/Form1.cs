@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,17 @@ namespace GestionTurnos
 {
     public partial class Form1 : Form
     {
+        private List<Paciente> listaPaciente;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            PacienteNegocio negocio = new PacienteNegocio();
+            listaPaciente = negocio.listar();
+            dgvPacientes.DataSource = listaPaciente;
         }
     }
 }
