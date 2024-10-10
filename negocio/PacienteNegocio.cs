@@ -15,11 +15,10 @@ namespace negocio
         {
             List<Paciente> lista = new List<Paciente>();
             AccesoDatos datos = new AccesoDatos();
-            AccesoDatos datosImagenes = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta(@"SELECT P.idPaciente, DP.Nombre, DP.Apellido, DP.DNI, DP.FechaNacimiento, D.Calle, C.idCobertura
+                datos.setearConsulta(@"SELECT P.idPaciente, DP.Nombre, DP.Apellido, DP.DNI, DP.FechaNacimiento, D.Calle, C.PorcentajeCobertura
                                        FROM Paciente P
                                        INNER JOIN DatosPersonales DP
                                        ON P.DNI = DP.DNI
@@ -35,14 +34,18 @@ namespace negocio
                     Paciente aux = new Paciente();
                     aux.IdPaciente = (int)datos.Lector["idPaciente"];
                     aux.Dni = (int)datos.Lector["DNI"];
+                    
                     aux.Cobertura = new Cobertura();
-                    aux.Cobertura.IdCobertura = (int)datos.Lector["idCobertura"];
+                    aux.Cobertura.PorcentajeCobertura = (int)datos.Lector["PorcentajeCobertura"];
+                    
+                    aux.DatosPersonales = new DatosPersonales();
+                    DatosPersonalesNegocio negocio = new DatosPersonalesNegocio();
+                    negocio.listar();                 
                     
 
                     lista.Add(aux);
 
                 }
-
             }
             catch (Exception ex)
             {

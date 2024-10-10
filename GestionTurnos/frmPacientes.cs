@@ -25,6 +25,7 @@ namespace GestionTurnos
             PacienteNegocio negocio = new PacienteNegocio();
             listaPaciente = negocio.listar();
             dgvPacientes.DataSource = listaPaciente;
+            
             ocultarColumnas();
         }
 

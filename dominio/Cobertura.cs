@@ -15,7 +15,7 @@ namespace dominio
 
         public override string ToString()
         {
-            return IdCobertura.ToString();
+            return PorcentajeCobertura.ToString();
         }
     }
 }
