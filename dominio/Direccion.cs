@@ -10,6 +10,6 @@ namespace dominio
     {
         public int IdDireccion {  get; set; }
         public string Calle {  get; set; }
-        public Ciudad Ciudad { get; set; }
+        public Ciudad Ciudad { get; set; } = new Ciudad();
     }
 }

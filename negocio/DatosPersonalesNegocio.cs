@@ -16,21 +16,22 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta(@"SELECT DP.Nombre, DP.Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono
-                                       FROM DatosPersonales DP");
+                datos.setearConsulta(@"SELECT DP.DNI, DP.Nombre, DP.Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, D.Calle
+                               FROM DatosPersonales DP
+                               INNER JOIN Direccion D ON DP.idDireccion = D.idDireccion");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     DatosPersonales aux = new DatosPersonales();
+                    aux.Dni = (int)datos.Lector["DNI"];                   
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Apellido = (string)datos.Lector["Apellido"];
                     aux.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     aux.Email =(string)datos.Lector["Email"];
                     aux.Telefono= (string)datos.Lector["Telefono"];
-
-
-
+                    aux.Direccion = new Direccion();
+                    aux.Direccion.Calle = (string)datos.Lector["Calle"];
 
                     lista.Add(aux);
 

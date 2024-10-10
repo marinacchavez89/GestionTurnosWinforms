@@ -51,6 +51,7 @@
     <Compile Include="EstadoTurno.cs" />
     <Compile Include="HorarioProfesional.cs" />
     <Compile Include="Paciente.cs" />
+    <Compile Include="PacienteViewModel.cs" />
     <Compile Include="Pais.cs" />
     <Compile Include="Profesional.cs" />
     <Compile Include="ProfesionalesEspecialidad.cs" />
