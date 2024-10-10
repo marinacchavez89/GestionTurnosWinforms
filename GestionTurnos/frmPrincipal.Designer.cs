@@ -59,6 +59,7 @@
             this.administrarProfesionalesToolStripMenuItem.Name = "administrarProfesionalesToolStripMenuItem";
             this.administrarProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
             this.administrarProfesionalesToolStripMenuItem.Text = "Administrar Profesionales";
+            this.administrarProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.administrarProfesionalesToolStripMenuItem_Click);
             // 
             // administrarEspecialidadesToolStripMenuItem
             // 

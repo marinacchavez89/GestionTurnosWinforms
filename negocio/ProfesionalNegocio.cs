@@ -7,7 +7,7 @@ using dominio;
 
 namespace negocio
 {
-    class ProfesionalNegocio
+    public class ProfesionalNegocio
     {
         public List<Profesional> listar()
         {
@@ -30,7 +30,7 @@ namespace negocio
                     aux.IdProfesional = (int)datos.Lector["idProfesional"];
                     aux.Matricula = (int)datos.Lector["Matricula"];
                     aux.Dni = (int)datos.Lector["DNI"];
-                    aux.Honorario = (float)datos.Lector["Honorario"];
+                    aux.Honorario = (decimal)datos.Lector["Honorario"];
 
                     aux.Especialidad = new Especialidad();
                     aux.Especialidad.Descripcion = (string)datos.Lector["Nombre"];

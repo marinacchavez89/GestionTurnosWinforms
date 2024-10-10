@@ -22,5 +22,11 @@ namespace GestionTurnos
             frmPacientes ventana = new frmPacientes();
             ventana.ShowDialog();
         }
+
+        private void administrarProfesionalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProfesional ventana = new frmProfesional();
+            ventana.ShowDialog();
+        }
     }
 }
