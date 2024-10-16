@@ -37,16 +37,18 @@ namespace GestionTurnos
             // dgvProfesional
             // 
             this.dgvProfesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfesional.Location = new System.Drawing.Point(53, 45);
+            this.dgvProfesional.Location = new System.Drawing.Point(12, 41);
             this.dgvProfesional.Name = "dgvProfesional";
-            this.dgvProfesional.Size = new System.Drawing.Size(694, 187);
+            this.dgvProfesional.ReadOnly = true;
+            this.dgvProfesional.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProfesional.Size = new System.Drawing.Size(1043, 187);
             this.dgvProfesional.TabIndex = 0;
             // 
             // frmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 345);
+            this.ClientSize = new System.Drawing.Size(1071, 345);
             this.Controls.Add(this.dgvProfesional);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

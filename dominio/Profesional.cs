@@ -14,6 +14,7 @@ namespace dominio
         public decimal Honorario { get; set; }
         public int Dni { get; set; }
         public bool Activo { get; set; }
+        public DatosPersonales DatosPersonales { get; set; }
 
     }
 }

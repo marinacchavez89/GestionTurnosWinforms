@@ -55,6 +55,7 @@
     <Compile Include="Pais.cs" />
     <Compile Include="Profesional.cs" />
     <Compile Include="ProfesionalesEspecialidad.cs" />
+    <Compile Include="ProfesionalViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provincia.cs" />
     <Compile Include="Turno.cs" />

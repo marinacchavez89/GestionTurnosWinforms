@@ -42,7 +42,7 @@ namespace GestionTurnos
                         PorcentajeCobertura = 0
                     };
                 }
-                //
+                
                 PacienteViewModel viewModel = new PacienteViewModel
                 {
                     IdPaciente = paciente.IdPaciente,
@@ -69,9 +69,7 @@ namespace GestionTurnos
 
         private void ocultarColumnas()
         {
-            dgvPacientes.Columns["IdPaciente"].Visible = false;
-           // dgvPacientes.Columns["Activo"].Visible = false
-
+            dgvPacientes.Columns["IdPaciente"].Visible = false;           
         }
     }
 }

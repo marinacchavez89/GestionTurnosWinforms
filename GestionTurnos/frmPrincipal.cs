@@ -15,6 +15,7 @@ namespace GestionTurnos
         public frmPrincipal()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void administrarPacientesToolStripMenuItem_Click(object sender, EventArgs e)

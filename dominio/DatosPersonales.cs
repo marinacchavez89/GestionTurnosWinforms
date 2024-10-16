@@ -12,7 +12,7 @@ namespace dominio
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public Direccion Direccion { get; set; } = new Direccion(); // se inicializa porque al momento de generar una instancia de datospersonales arroja null
+        public Direccion Direccion { get; set; } = new Direccion();
         public string Email { get; set; }
         public string Telefono { get; set; }
     }

@@ -16,7 +16,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta(@"SELECT P.idProfesional, P.Matricula, E.Nombre, P.DNI, DP.Nombre, DP.Apellido, DP.Email, P.Honorario, D.Calle
+                datos.setearConsulta(@"SELECT P.idProfesional, P.Matricula, P.Honorario, E.Nombre AS Especialidad, DP.DNI, DP.Nombre, DP .Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, D.Calle
                                        FROM Profesional AS P 
                                        INNER JOIN DatosPersonales AS DP ON P.DNI = DP.DNI 
                                        INNER JOIN Direccion AS D ON DP.idDireccion = D.idDireccion
@@ -26,15 +26,33 @@ namespace negocio
 
                 while(datos.Lector.Read())
                 {
-                    Profesional aux = new Profesional();
-                    aux.IdProfesional = (int)datos.Lector["idProfesional"];
-                    aux.Matricula = (int)datos.Lector["Matricula"];
-                    aux.Dni = (int)datos.Lector["DNI"];
-                    aux.Honorario = (decimal)datos.Lector["Honorario"];
+                    Profesional aux = new Profesional
+                    {
+                        IdProfesional= (int)datos.Lector["idProfesional"],
+                        Matricula = (int)datos.Lector["Matricula"],
+                        Honorario = (decimal)datos.Lector["Honorario"],
 
-                    aux.Especialidad = new Especialidad();
-                    aux.Especialidad.Descripcion = (string)datos.Lector["Nombre"];
+                        Especialidad = new Especialidad
+                        {
+                            Descripcion = (string)datos.Lector["Especialidad"]                            
+                        },
 
+                        Dni = (int)datos.Lector["DNI"],
+
+                        DatosPersonales = new DatosPersonales
+                        {
+                            Dni = (int)datos.Lector["DNI"],
+                            Nombre = (string)datos.Lector["Nombre"],
+                            Apellido = (string)datos.Lector["Apellido"],
+                            FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"],
+                            Email = (string)datos.Lector["Email"],
+                            Telefono = (string)datos.Lector["Telefono"],
+                            Direccion = new Direccion
+                            {
+                                Calle = (string)datos.Lector["Calle"]
+                            }
+                        }
+                    };
 
                     lista.Add(aux);
                 }
