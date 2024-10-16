@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace dominio
 {
-    public class DatosPersonales
+    public class PacienteViewModel
     {
-        public int Dni {  get; set; }
+        public int IdPaciente { get; set; }
+        public int Dni { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public Direccion Direccion { get; set; } = new Direccion(); // se inicializa porque al momento de generar una instancia de datospersonales arroja null
+        public string DireccionCalle { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
+        public string NombreCobertura { get; set; }  // Cambiado de "Descripcion" a "NombreCobertura"
+        public int PorcentajeCobertura { get; set; }
     }
+
 }
