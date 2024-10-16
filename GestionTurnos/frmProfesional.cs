@@ -24,7 +24,15 @@ namespace GestionTurnos
         {
             ProfesionalNegocio negocio = new ProfesionalNegocio();
             listaProfesional = negocio.listar();
-            dgvprofesional.DataSource = listaProfesional;
+            dgvProfesional.DataSource = listaProfesional;
+
+            ocultarColumnas();
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvProfesional.Columns["Activo"].Visible = false;
+            dgvProfesional.Columns["IdProfesional"].Visible = false;
         }
     }
 }

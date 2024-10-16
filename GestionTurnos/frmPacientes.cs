@@ -32,6 +32,7 @@ namespace GestionTurnos
         private void ocultarColumnas()
         {
             dgvPacientes.Columns["Activo"].Visible = false;
+            dgvPacientes.Columns["IdPaciente"].Visible = false;
         }
     }
 }

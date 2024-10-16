@@ -29,34 +29,38 @@ namespace GestionTurnos
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvprofesional = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvprofesional)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfesional));
+            this.dgvProfesional = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvprofesional
+            // dgvProfesional
             // 
-            this.dgvprofesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvprofesional.Location = new System.Drawing.Point(45, 73);
-            this.dgvprofesional.Name = "dgvprofesional";
-            this.dgvprofesional.Size = new System.Drawing.Size(610, 150);
-            this.dgvprofesional.TabIndex = 0;
+            this.dgvProfesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProfesional.Location = new System.Drawing.Point(53, 45);
+            this.dgvProfesional.Name = "dgvProfesional";
+            this.dgvProfesional.Size = new System.Drawing.Size(694, 187);
+            this.dgvProfesional.TabIndex = 0;
             // 
             // frmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgvprofesional);
+            this.ClientSize = new System.Drawing.Size(800, 345);
+            this.Controls.Add(this.dgvProfesional);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmProfesional";
-            this.Text = "frmProfesional";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Administrar Profesionales";
             this.Load += new System.EventHandler(this.frmProfesional_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvprofesional)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvprofesional;
+        private System.Windows.Forms.DataGridView dgvProfesional;
     }
 }

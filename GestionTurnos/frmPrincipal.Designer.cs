@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.administrarPacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarPacientesToolStripMenuItem,
             this.administrarProfesionalesToolStripMenuItem,
-            this.administrarEspecialidadesToolStripMenuItem});
+            this.administrarEspecialidadesToolStripMenuItem,
+            this.reportesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -50,22 +53,28 @@
             // administrarPacientesToolStripMenuItem
             // 
             this.administrarPacientesToolStripMenuItem.Name = "administrarPacientesToolStripMenuItem";
-            this.administrarPacientesToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
-            this.administrarPacientesToolStripMenuItem.Text = "Administrar Pacientes";
+            this.administrarPacientesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.administrarPacientesToolStripMenuItem.Text = "Pacientes";
             this.administrarPacientesToolStripMenuItem.Click += new System.EventHandler(this.administrarPacientesToolStripMenuItem_Click);
             // 
             // administrarProfesionalesToolStripMenuItem
             // 
             this.administrarProfesionalesToolStripMenuItem.Name = "administrarProfesionalesToolStripMenuItem";
-            this.administrarProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.administrarProfesionalesToolStripMenuItem.Text = "Administrar Profesionales";
+            this.administrarProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.administrarProfesionalesToolStripMenuItem.Text = "Profesionales";
             this.administrarProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.administrarProfesionalesToolStripMenuItem_Click);
             // 
             // administrarEspecialidadesToolStripMenuItem
             // 
             this.administrarEspecialidadesToolStripMenuItem.Name = "administrarEspecialidadesToolStripMenuItem";
-            this.administrarEspecialidadesToolStripMenuItem.Size = new System.Drawing.Size(160, 20);
-            this.administrarEspecialidadesToolStripMenuItem.Text = "Administrar Especialidades";
+            this.administrarEspecialidadesToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.administrarEspecialidadesToolStripMenuItem.Text = "Especialidades";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // frmPrincipal
             // 
@@ -73,6 +82,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -90,5 +100,6 @@
         private System.Windows.Forms.ToolStripMenuItem administrarPacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarProfesionalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarEspecialidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
