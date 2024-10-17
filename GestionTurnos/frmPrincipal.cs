@@ -29,5 +29,11 @@ namespace GestionTurnos
             frmProfesional ventana = new frmProfesional();
             ventana.ShowDialog();
         }
+
+        private void administrarEspecialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEspecialidades ventana = new frmEspecialidades();
+            ventana.ShowDialog();
+        }
     }
 }

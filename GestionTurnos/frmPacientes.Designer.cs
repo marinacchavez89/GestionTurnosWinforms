@@ -35,6 +35,8 @@
             // 
             // dgvPacientes
             // 
+            this.dgvPacientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPacientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPacientes.Location = new System.Drawing.Point(12, 43);
             this.dgvPacientes.Name = "dgvPacientes";

@@ -36,6 +36,8 @@ namespace GestionTurnos
             // 
             // dgvProfesional
             // 
+            this.dgvProfesional.BackgroundColor = System.Drawing.Color.White;
+            this.dgvProfesional.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProfesional.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProfesional.Location = new System.Drawing.Point(12, 41);
             this.dgvProfesional.Name = "dgvProfesional";
