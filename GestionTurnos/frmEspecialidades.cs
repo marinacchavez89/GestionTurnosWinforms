@@ -91,7 +91,29 @@ namespace GestionTurnos
 
         private void btnEliminarEspecialidad_Click(object sender, EventArgs e)
         {
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
+            Especialidad seleccionado;
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar la especialidad seleccionada de forma permanente?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes && dgvEspecialidades.CurrentRow != null)
+                {
+                    seleccionado = (Especialidad)dgvEspecialidades.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.IdEspecialidad);
+                    cargar();
+                }
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Debe seleccionar al menos una especialidad para eliminar.", "Especialidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cargar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
