@@ -41,5 +41,10 @@ namespace GestionTurnos
         {
             dgvEspecialidades.Columns["IdEspecialidad"].Visible = false;
         }
+
+        private void btnSalirEspecialidad_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
