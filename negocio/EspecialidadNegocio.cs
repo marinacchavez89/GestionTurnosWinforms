@@ -43,5 +43,38 @@ namespace negocio
 
             return lista;
         }
+
+        public void agregar(Especialidad especialidad)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM Especialidad WHERE Nombre = @nombre");
+                datos.setearParametro("@nombre", especialidad.Descripcion);
+
+                int cantidad = (int)datos.ejecutarScalar();
+
+                if (cantidad > 0)
+                {
+                    throw new Exception($"Ya existe una especialidad con nombre '{especialidad.Descripcion}' en la base de datos.");
+                }
+                else
+                {
+                    datos.setearConsulta("INSERT INTO Especialidad (Nombre) VALUES(@nombre)");
+                    datos.setearParametro("@nombre", especialidad.Descripcion);
+                    datos.ejecutarAccion();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error al agregar la especialidad: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
