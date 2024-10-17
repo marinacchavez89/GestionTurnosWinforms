@@ -59,6 +59,7 @@
             this.btnAgregarEspecialidad.TabIndex = 1;
             this.btnAgregarEspecialidad.Text = "Agregar";
             this.btnAgregarEspecialidad.UseVisualStyleBackColor = true;
+            this.btnAgregarEspecialidad.Click += new System.EventHandler(this.btnAgregarEspecialidad_Click);
             // 
             // btnModificarEspecialidad
             // 
@@ -77,6 +78,7 @@
             this.btnEliminarEspecialidad.TabIndex = 3;
             this.btnEliminarEspecialidad.Text = "Eliminar";
             this.btnEliminarEspecialidad.UseVisualStyleBackColor = true;
+            this.btnEliminarEspecialidad.Click += new System.EventHandler(this.btnEliminarEspecialidad_Click);
             // 
             // btnSalirEspecialidad
             // 

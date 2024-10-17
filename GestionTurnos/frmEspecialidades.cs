@@ -15,6 +15,7 @@ namespace GestionTurnos
 {
     public partial class frmEspecialidades : Form
     {
+        private Especialidad especialidad;
         private List<Especialidad> listaEspecialidad;
         public frmEspecialidades()
         {
@@ -45,6 +46,52 @@ namespace GestionTurnos
         private void btnSalirEspecialidad_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnAgregarEspecialidad_Click(object sender, EventArgs e)
+        {
+            EspecialidadNegocio negocio = new EspecialidadNegocio();
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtAgregarEspecialidad.Text))
+                {
+                    MessageBox.Show("El campo 'Especialidad' no puede estar vacio", "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                especialidad = new Especialidad();
+                especialidad.Descripcion = txtAgregarEspecialidad.Text;
+                DialogResult respuesta = MessageBox.Show("¿Esta seguro que desea agregar la especialidad?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    negocio.agregar(especialidad);
+
+                    MessageBox.Show("Especialidad agregada exitosamente", "Especialidad", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cargar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void cargar()
+        {
+            try
+            {
+                EspecialidadNegocio negocio = new EspecialidadNegocio();
+                listaEspecialidad = negocio.listar();
+                dgvEspecialidades.DataSource = listaEspecialidad;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btnEliminarEspecialidad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
