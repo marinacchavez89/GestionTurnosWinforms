@@ -115,5 +115,21 @@ namespace GestionTurnos
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void btnModificarEspecialidad_Click(object sender, EventArgs e)
+        {
+            Especialidad seleccionado;
+            if (dgvEspecialidades.CurrentRow != null)
+            {
+                seleccionado = (Especialidad)dgvEspecialidades.CurrentRow.DataBoundItem;
+                frmModificarEspecialidad modificar = new frmModificarEspecialidad(seleccionado);
+                modificar.ShowDialog();
+                cargar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una categoría haciendo clic en una fila de la tabla.", "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

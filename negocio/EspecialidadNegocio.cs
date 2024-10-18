@@ -91,5 +91,38 @@ namespace negocio
                 throw ex;
             }
         }
+
+        public void modificar(Especialidad especialidad)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM Especialidad WHERE Nombre = @nombre AND idEspecialidad <> @id");
+                datos.setearParametro("@nombre", especialidad.Descripcion);
+                datos.setearParametro("@id", especialidad.IdEspecialidad);
+
+                int cantidad = (int)datos.ejecutarScalar();
+
+                if (cantidad > 0)
+                {
+                    throw new Exception($"Ya existe una especialidad con la descripción '{especialidad.Descripcion}' en la base de datos.");
+                }
+                else
+                {
+                    datos.setearConsulta("UPDATE Especialidad SET Nombre = @nombre WHERE idEspecialidad = @id");
+                    datos.setearParametro("@nombre", especialidad.Descripcion);
+                    datos.setearParametro("@id", especialidad.IdEspecialidad);
+                    datos.ejecutarAccion();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al modificar la especialidad: " + ex.Message);
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

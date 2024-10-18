@@ -69,6 +69,7 @@
             this.btnModificarEspecialidad.TabIndex = 2;
             this.btnModificarEspecialidad.Text = "Modificar";
             this.btnModificarEspecialidad.UseVisualStyleBackColor = true;
+            this.btnModificarEspecialidad.Click += new System.EventHandler(this.btnModificarEspecialidad_Click);
             // 
             // btnEliminarEspecialidad
             // 
