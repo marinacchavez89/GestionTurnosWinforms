@@ -128,7 +128,7 @@ namespace GestionTurnos
             }
             else
             {
-                MessageBox.Show("Seleccione una categoría haciendo clic en una fila de la tabla.", "Categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una especialidad haciendo clic en una fila de la tabla.", "Especialidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
