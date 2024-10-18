@@ -66,5 +66,57 @@ namespace negocio
 
             return lista;
         }
+    public void agregar(Paciente paciente)
+    {
+        AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // validacion de datos obligatorios completos
+                if (string.IsNullOrWhiteSpace(paciente.DatosPersonales.Nombre) ||
+                    string.IsNullOrWhiteSpace(paciente.DatosPersonales.Apellido) ||
+                    string.IsNullOrWhiteSpace(paciente.DatosPersonales.Email) ||
+                    string.IsNullOrWhiteSpace(paciente.DatosPersonales.Telefono) ||
+                    string.IsNullOrWhiteSpace(paciente.DatosPersonales.Direccion.Calle))
+                {
+                    throw new Exception("Los campos Nombre, Apellido, Email, Teléfono y Calle no pueden estar vacíos.");
+                }
+                // se inserta la direccion si no existe (podemos usar un metodo para obtenerla si ya existe(muy poco probable))
+                datos.setearConsulta("INSERT INTO Direccion (Calle, idCiudad) OUTPUT INSERTED.idDireccion " +
+                                     "VALUES (@calle, @idCiudad)");
+                datos.setearParametro("@calle", paciente.DatosPersonales.Direccion.Calle);
+                datos.setearParametro("@idCiudad", paciente.DatosPersonales.Direccion.Ciudad);
+
+                paciente.DatosPersonales.Direccion.IdDireccion = (int)datos.ejecutarScalar();
+
+                // se insertan los datos personales
+                datos.setearConsulta("INSERT INTO DatosPersonales (DNI, Nombre, Apellido, FechaNacimiento, Email, Telefono, idDireccion) " +
+                                     "VALUES (@dni, @nombre, @apellido, @fechaNacimiento, @email, @telefono, @idDireccion)");
+                datos.setearParametro("@dni", paciente.DatosPersonales.Dni);
+                datos.setearParametro("@nombre", paciente.DatosPersonales.Nombre);
+                datos.setearParametro("@apellido", paciente.DatosPersonales.Apellido);
+                datos.setearParametro("@fechaNacimiento", paciente.DatosPersonales.FechaNacimiento);
+                datos.setearParametro("@email", paciente.DatosPersonales.Email);
+                datos.setearParametro("@telefono", paciente.DatosPersonales.Telefono);
+                datos.setearParametro("@idDireccion", paciente.DatosPersonales.Direccion.IdDireccion);
+
+                datos.ejecutarAccion();
+
+                // se inserta al paciente
+                datos.setearConsulta("INSERT INTO Paciente (DNI, idCobertura, Activo) VALUES (@dni, @idCobertura, 1)");
+                datos.setearParametro("@dni", paciente.Dni);
+                datos.setearParametro("@idCobertura", paciente.Cobertura.IdCobertura);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el paciente: " + ex.Message);
+            }
+        }
+    public void modificar(Paciente paciente)
+        {
+
+        }
     }
+
 }
