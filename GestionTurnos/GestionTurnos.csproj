@@ -64,6 +64,12 @@
     <Compile Include="frmModificarPaciente.Designer.cs">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarProfesional.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarProfesional.Designer.cs">
+      <DependentUpon>frmModificarProfesional.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarPaciente.resx">
       <DependentUpon>frmModificarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarProfesional.resx">
+      <DependentUpon>frmModificarProfesional.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

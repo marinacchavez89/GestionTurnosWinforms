@@ -31,6 +31,9 @@ namespace GestionTurnos
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProfesional));
             this.dgvProfesional = new System.Windows.Forms.DataGridView();
+            this.btnAgregarProfesional = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +49,42 @@ namespace GestionTurnos
             this.dgvProfesional.Size = new System.Drawing.Size(1043, 187);
             this.dgvProfesional.TabIndex = 0;
             // 
+            // btnAgregarProfesional
+            // 
+            this.btnAgregarProfesional.Location = new System.Drawing.Point(12, 271);
+            this.btnAgregarProfesional.Name = "btnAgregarProfesional";
+            this.btnAgregarProfesional.Size = new System.Drawing.Size(82, 32);
+            this.btnAgregarProfesional.TabIndex = 1;
+            this.btnAgregarProfesional.Text = "Agregar";
+            this.btnAgregarProfesional.UseVisualStyleBackColor = true;
+            this.btnAgregarProfesional.Click += new System.EventHandler(this.btnAgregarProfesional_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(244, 271);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(82, 32);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(126, 271);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(82, 32);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
             // frmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 345);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnAgregarProfesional);
             this.Controls.Add(this.dgvProfesional);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -66,5 +100,8 @@ namespace GestionTurnos
         #endregion
 
         private System.Windows.Forms.DataGridView dgvProfesional;
+        private System.Windows.Forms.Button btnAgregarProfesional;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

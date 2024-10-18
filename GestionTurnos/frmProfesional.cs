@@ -78,5 +78,11 @@ namespace GestionTurnos
         {
             dgvProfesional.Columns["IdProfesional"].Visible = false;
         }
+
+        private void btnAgregarProfesional_Click(object sender, EventArgs e)
+        {
+            frmModificarProfesional ventana = new frmModificarProfesional();
+            ventana.ShowDialog();
+        }
     }
 }
