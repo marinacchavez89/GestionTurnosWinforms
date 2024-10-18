@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPacientes));
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
+            this.btnAgregarPaciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,11 +46,22 @@
             this.dgvPacientes.Size = new System.Drawing.Size(943, 187);
             this.dgvPacientes.TabIndex = 0;
             // 
+            // btnAgregarPaciente
+            // 
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(12, 255);
+            this.btnAgregarPaciente.Name = "btnAgregarPaciente";
+            this.btnAgregarPaciente.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregarPaciente.TabIndex = 1;
+            this.btnAgregarPaciente.Text = "&Agregar";
+            this.btnAgregarPaciente.UseVisualStyleBackColor = true;
+            this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
+            // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 345);
+            this.Controls.Add(this.btnAgregarPaciente);
             this.Controls.Add(this.dgvPacientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPacientes";
@@ -64,6 +76,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvPacientes;
+        private System.Windows.Forms.Button btnAgregarPaciente;
     }
 }
 
