@@ -1,6 +1,7 @@
 ﻿using dominio;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace negocio
 {
@@ -13,10 +14,15 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta(@"SELECT P.idPaciente, P.DNI, DP.Nombre AS NombrePaciente, DP.Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, D.Calle, C.Nombre AS Cobertura, C.PorcentajeCobertura
+                datos.setearConsulta(@"SELECT P.idPaciente, P.DNI, DP.Nombre AS NombrePaciente, DP.Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, 
+                                              D.Calle, C.Nombre AS Cobertura, C.PorcentajeCobertura, 
+                                              CI.Nombre AS Ciudad, PR.Nombre AS Provincia, PA.Nombre AS Pais
                                        FROM Paciente P
                                        INNER JOIN DatosPersonales DP ON P.DNI = DP.DNI
                                        INNER JOIN Direccion D ON DP.idDireccion = D.idDireccion
+                                       INNER JOIN Ciudad CI ON D.idCiudad = CI.idCiudad
+                                       INNER JOIN Provincia PR ON CI.idProvincia = PR.idProvincia
+                                       INNER JOIN Pais PA ON PR.idPais = PA.idPais
                                        INNER JOIN Cobertura C ON P.idCobertura = C.idCobertura
                                        WHERE P.Activo = 1 AND C.Activo = 1");
                 datos.ejecutarLectura();
@@ -45,7 +51,21 @@ namespace negocio
                             Telefono = (string)datos.Lector["Telefono"],
                             Direccion = new Direccion
                             {
-                                Calle = (string)datos.Lector["Calle"]
+                                Calle = (string)datos.Lector["Calle"],
+                                Ciudad = new Ciudad
+                                {
+                                    Nombre = (string)datos.Lector["Ciudad"],
+                                    Provincia = new Provincia
+                                    {
+                                        Nombre = (string)datos.Lector["Provincia"],
+                                        Pais = new Pais
+                                        {
+                                            Nombre = (string)datos.Lector["Pais"]
+                                        }
+                                    }
+
+
+                                }
                             }
                         }
                     };
@@ -66,9 +86,9 @@ namespace negocio
 
             return lista;
         }
-    public void agregar(Paciente paciente)
-    {
-        AccesoDatos datos = new AccesoDatos();
+        public void agregar(Paciente paciente)
+        {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
                 // validacion de datos obligatorios completos
@@ -112,11 +132,67 @@ namespace negocio
             {
                 throw new Exception("Error al agregar el paciente: " + ex.Message);
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
-    public void modificar(Paciente paciente)
+        public void modificar(Paciente paciente)
         {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                  validarDatosPaciente(paciente);
 
+
+                // actualiamoa la direccion
+                datos.setearConsulta("UPDATE Direccion SET" +
+                    " Calle = @calle, idCiudad = @idCiudad WHERE idDireccion = @idDireccion");
+                datos.setearParametro("@calle", paciente.DatosPersonales.Direccion.Calle);
+                datos.setearParametro("@idCiudad", paciente.DatosPersonales.Direccion.Ciudad);
+                datos.setearParametro("@idDireccion", paciente.DatosPersonales.Direccion.IdDireccion);
+
+                datos.ejecutarAccion();
+
+                datos.setearConsulta("UPDATE DatosPersonales SET" +
+                    " Nombre = @nombre, Apellido = @apellido, FechaNacimiento = @fechaNacimiento, Email = @email, Telefono = @telefono" +
+                    " WHERE DNI = @dni");
+                datos.setearParametro("@nombre", paciente.DatosPersonales.Nombre);
+                datos.setearParametro("@apellido", paciente.DatosPersonales.Apellido);
+                datos.setearParametro("@fechaNacimiento", paciente.DatosPersonales.FechaNacimiento);
+                datos.setearParametro("@email", paciente.DatosPersonales.Email);
+                datos.setearParametro("@telefono", paciente.DatosPersonales.Telefono);
+                datos.setearParametro("@dni", paciente.DatosPersonales.Dni);
+
+                datos.ejecutarAccion();
+
+                datos.setearConsulta("UPDATE Paciente SET" +
+                    " idCobertura = @idCobertura WHERE DNI = @dni");
+                datos.setearParametro("@idCobertura", paciente.Cobertura.IdCobertura);
+                datos.setearParametro("@IdPaciente", paciente.IdPaciente);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
-    }
-
-}
+        private void validarDatosPaciente(Paciente paciente)
+        {
+            if (string.IsNullOrWhiteSpace(paciente.DatosPersonales.Nombre) ||
+                string.IsNullOrWhiteSpace(paciente.DatosPersonales.Apellido) ||
+                string.IsNullOrWhiteSpace(paciente.DatosPersonales.Email) ||
+                string.IsNullOrWhiteSpace(paciente.DatosPersonales.Telefono) ||
+                string.IsNullOrWhiteSpace(paciente.DatosPersonales.Direccion.Calle))
+            {
+                throw new Exception("Los campos Nombre, Apellido, Email, Teléfono y Calle no pueden estar vacíos.");
+            }
+        }
+       
+    } }

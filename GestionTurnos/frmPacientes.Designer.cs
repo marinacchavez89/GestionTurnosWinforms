@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPacientes));
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnAgregarPaciente = new System.Windows.Forms.Button();
+            this.btnModificarPaciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,11 +57,22 @@
             this.btnAgregarPaciente.UseVisualStyleBackColor = true;
             this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
             // 
+            // btnModificarPaciente
+            // 
+            this.btnModificarPaciente.Location = new System.Drawing.Point(93, 255);
+            this.btnModificarPaciente.Name = "btnModificarPaciente";
+            this.btnModificarPaciente.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarPaciente.TabIndex = 2;
+            this.btnModificarPaciente.Text = "&Modificar";
+            this.btnModificarPaciente.UseVisualStyleBackColor = true;
+            this.btnModificarPaciente.Click += new System.EventHandler(this.btnModificarPaciente_Click);
+            // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 345);
+            this.Controls.Add(this.btnModificarPaciente);
             this.Controls.Add(this.btnAgregarPaciente);
             this.Controls.Add(this.dgvPacientes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -77,6 +89,7 @@
 
         private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.Button btnAgregarPaciente;
+        private System.Windows.Forms.Button btnModificarPaciente;
     }
 }
 

@@ -2,6 +2,7 @@
 using negocio;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 namespace GestionTurnos
 {
@@ -51,6 +52,9 @@ namespace GestionTurnos
                     Apellido = paciente.DatosPersonales.Apellido,
                     FechaNacimiento = paciente.DatosPersonales.FechaNacimiento,
                     DireccionCalle = paciente.DatosPersonales.Direccion.Calle,
+                    DireccionCiudad = paciente.DatosPersonales.Direccion.Ciudad.Nombre,
+                    DireccionProvincia = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Nombre,
+                    DireccionPais = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre,
                     Email = paciente.DatosPersonales.Email,
                     Telefono = paciente.DatosPersonales.Telefono,
                     NombreCobertura = paciente.Cobertura.Descripcion,
@@ -76,6 +80,55 @@ namespace GestionTurnos
         {
             frmModificarPaciente ventana = new frmModificarPaciente();
             ventana.ShowDialog();
+        }
+
+        private void btnModificarPaciente_Click(object sender, EventArgs e)
+        {
+            if (dgvPacientes.SelectedRows.Count > 0)
+            {
+                Paciente pacienteSeleccionado = new Paciente
+                {
+                    IdPaciente = (int)dgvPacientes.SelectedRows[0].Cells["IdPaciente"].Value,
+                    Dni = (int)dgvPacientes.SelectedRows[0].Cells["Dni"].Value,
+                    DatosPersonales = new DatosPersonales
+                    {
+                        Nombre = dgvPacientes.SelectedRows[0].Cells["Nombre"].Value.ToString(),
+                        Apellido = dgvPacientes.SelectedRows[0].Cells["Apellido"].Value.ToString(),
+                        FechaNacimiento = (DateTime)dgvPacientes.SelectedRows[0].Cells["FechaNacimiento"].Value,
+                        Email = dgvPacientes.SelectedRows[0].Cells["Email"].Value.ToString(),
+                        Telefono = dgvPacientes.SelectedRows[0].Cells["Telefono"].Value.ToString(),
+                        Direccion = new Direccion
+                        {
+                            Calle = dgvPacientes.SelectedRows[0].Cells["DireccionCalle"].Value.ToString(),
+                            Ciudad = new Ciudad
+                            {
+                                Nombre = dgvPacientes.SelectedRows[0].Cells["DireccionCiudad"].Value.ToString(),
+                                Provincia = new Provincia
+                                {
+                                    Nombre = dgvPacientes.SelectedRows[0].Cells["DireccionProvincia"].Value.ToString(),
+                                    Pais = new Pais
+                                    {
+                                        Nombre = dgvPacientes.SelectedRows[0].Cells["DireccionPais"].Value.ToString()
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    Cobertura = new Cobertura
+                        {
+                            Descripcion = dgvPacientes.SelectedRows[0].Cells["NombreCobertura"].Value.ToString(),
+                            PorcentajeCobertura = (int)dgvPacientes.SelectedRows[0].Cells["PorcentajeCobertura"].Value
+                        }
+                };
+
+                frmModificarPaciente ventana = new frmModificarPaciente(pacienteSeleccionado);
+                ventana.ShowDialog();
+                //actualizar la lista de pacientes luego de que se modifique uno
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un paciente de la lista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

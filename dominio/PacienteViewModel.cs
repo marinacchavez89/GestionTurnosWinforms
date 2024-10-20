@@ -19,6 +19,12 @@ namespace dominio
 
         [DisplayName("Dirección")]
         public string DireccionCalle { get; set; }
+        [DisplayName("Ciudad")]
+        public string DireccionCiudad { get; set; }
+        [DisplayName("Provincia")]
+        public string DireccionProvincia { get; set; }
+        [DisplayName("País")]
+        public string DireccionPais { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
 

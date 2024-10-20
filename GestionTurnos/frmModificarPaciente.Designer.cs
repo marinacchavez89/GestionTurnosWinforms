@@ -51,10 +51,9 @@
             this.lblCobertura = new System.Windows.Forms.Label();
             this.txtCobertura = new System.Windows.Forms.TextBox();
             this.lblPorcCobertura = new System.Windows.Forms.Label();
-            this.nudPorcCobertura = new System.Windows.Forms.NumericUpDown();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPorcCobertura)).BeginInit();
+            this.txtPorcCobertura = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblApellido
@@ -254,22 +253,6 @@
             this.lblPorcCobertura.TabIndex = 22;
             this.lblPorcCobertura.Text = "Porc. Cobertura";
             // 
-            // nudPorcCobertura
-            // 
-            this.nudPorcCobertura.BackColor = System.Drawing.SystemColors.Window;
-            this.nudPorcCobertura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nudPorcCobertura.Cursor = System.Windows.Forms.Cursors.Default;
-            this.nudPorcCobertura.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.nudPorcCobertura.Location = new System.Drawing.Point(12, 495);
-            this.nudPorcCobertura.Name = "nudPorcCobertura";
-            this.nudPorcCobertura.Size = new System.Drawing.Size(59, 20);
-            this.nudPorcCobertura.TabIndex = 23;
-            this.nudPorcCobertura.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
             // btnGrabar
             // 
             this.btnGrabar.Location = new System.Drawing.Point(137, 495);
@@ -290,14 +273,21 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // txtPorcCobertura
+            // 
+            this.txtPorcCobertura.Location = new System.Drawing.Point(12, 495);
+            this.txtPorcCobertura.Name = "txtPorcCobertura";
+            this.txtPorcCobertura.Size = new System.Drawing.Size(37, 20);
+            this.txtPorcCobertura.TabIndex = 26;
+            // 
             // frmModificarPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 562);
+            this.Controls.Add(this.txtPorcCobertura);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
-            this.Controls.Add(this.nudPorcCobertura);
             this.Controls.Add(this.lblPorcCobertura);
             this.Controls.Add(this.txtCobertura);
             this.Controls.Add(this.lblCobertura);
@@ -323,7 +313,6 @@
             this.Controls.Add(this.lblApellido);
             this.Name = "frmModificarPaciente";
             this.Text = "frmModificarPaciente";
-            ((System.ComponentModel.ISupportInitialize)(this.nudPorcCobertura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,8 +343,8 @@
         private System.Windows.Forms.Label lblCobertura;
         private System.Windows.Forms.TextBox txtCobertura;
         private System.Windows.Forms.Label lblPorcCobertura;
-        private System.Windows.Forms.NumericUpDown nudPorcCobertura;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtPorcCobertura;
     }
 }
