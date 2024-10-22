@@ -34,6 +34,7 @@ namespace GestionTurnos
             this.btnAgregarProfesional = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnSalirProfesional = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProfesional)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,11 +78,22 @@ namespace GestionTurnos
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             // 
+            // btnSalirProfesional
+            // 
+            this.btnSalirProfesional.Location = new System.Drawing.Point(962, 301);
+            this.btnSalirProfesional.Name = "btnSalirProfesional";
+            this.btnSalirProfesional.Size = new System.Drawing.Size(82, 32);
+            this.btnSalirProfesional.TabIndex = 4;
+            this.btnSalirProfesional.Text = "Salir";
+            this.btnSalirProfesional.UseVisualStyleBackColor = true;
+            this.btnSalirProfesional.Click += new System.EventHandler(this.btnSalirProfesional_Click);
+            // 
             // frmProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 345);
+            this.Controls.Add(this.btnSalirProfesional);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnAgregarProfesional);
@@ -103,5 +115,6 @@ namespace GestionTurnos
         private System.Windows.Forms.Button btnAgregarProfesional;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnSalirProfesional;
     }
 }

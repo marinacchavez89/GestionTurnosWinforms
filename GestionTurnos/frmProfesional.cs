@@ -84,5 +84,10 @@ namespace GestionTurnos
             frmModificarProfesional ventana = new frmModificarProfesional();
             ventana.ShowDialog();
         }
+
+        private void btnSalirProfesional_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

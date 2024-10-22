@@ -130,5 +130,10 @@ namespace GestionTurnos
                 MessageBox.Show("Debe seleccionar un paciente de la lista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSalirPaciente_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

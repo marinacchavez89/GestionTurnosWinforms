@@ -32,6 +32,7 @@
             this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.btnAgregarPaciente = new System.Windows.Forms.Button();
             this.btnModificarPaciente = new System.Windows.Forms.Button();
+            this.btnSalirPaciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,11 +68,22 @@
             this.btnModificarPaciente.UseVisualStyleBackColor = true;
             this.btnModificarPaciente.Click += new System.EventHandler(this.btnModificarPaciente_Click);
             // 
+            // btnSalirPaciente
+            // 
+            this.btnSalirPaciente.Location = new System.Drawing.Point(880, 310);
+            this.btnSalirPaciente.Name = "btnSalirPaciente";
+            this.btnSalirPaciente.Size = new System.Drawing.Size(75, 23);
+            this.btnSalirPaciente.TabIndex = 3;
+            this.btnSalirPaciente.Text = "&Salir";
+            this.btnSalirPaciente.UseVisualStyleBackColor = true;
+            this.btnSalirPaciente.Click += new System.EventHandler(this.btnSalirPaciente_Click);
+            // 
             // frmPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 345);
+            this.Controls.Add(this.btnSalirPaciente);
             this.Controls.Add(this.btnModificarPaciente);
             this.Controls.Add(this.btnAgregarPaciente);
             this.Controls.Add(this.dgvPacientes);
@@ -90,6 +102,7 @@
         private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.Button btnAgregarPaciente;
         private System.Windows.Forms.Button btnModificarPaciente;
+        private System.Windows.Forms.Button btnSalirPaciente;
     }
 }
 
