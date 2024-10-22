@@ -37,7 +37,7 @@ namespace GestionTurnos
                 }
                 if (paciente.Cobertura == null)
                 {
-                    paciente.Cobertura = new Cobertura
+                    paciente.Cobertura = new dominio.Cobertura
                     {
                         Descripcion = "Sin Cobertura",
                         PorcentajeCobertura = 0
@@ -114,7 +114,7 @@ namespace GestionTurnos
                             }
                         }
                     },
-                    Cobertura = new Cobertura
+                    Cobertura = new dominio.Cobertura
                         {
                             Descripcion = dgvPacientes.SelectedRows[0].Cells["NombreCobertura"].Value.ToString(),
                             PorcentajeCobertura = (int)dgvPacientes.SelectedRows[0].Cells["PorcentajeCobertura"].Value

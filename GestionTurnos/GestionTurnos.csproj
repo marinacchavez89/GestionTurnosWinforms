@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCobertura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCobertura.Designer.cs">
+      <DependentUpon>frmCobertura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCobertura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCobertura.Designer.cs">
+      <DependentUpon>frmModificarCobertura.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEspecialidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,8 +102,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCobertura.resx">
+      <DependentUpon>frmCobertura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEspecialidades.resx">
       <DependentUpon>frmEspecialidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCobertura.resx">
+      <DependentUpon>frmModificarCobertura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarEspecialidad.resx">
       <DependentUpon>frmModificarEspecialidad.cs</DependentUpon>

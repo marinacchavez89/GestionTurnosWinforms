@@ -35,5 +35,11 @@ namespace GestionTurnos
             frmEspecialidades ventana = new frmEspecialidades();
             ventana.ShowDialog();
         }
+
+        private void coberturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCobertura ventana = new frmCobertura();
+            ventana.ShowDialog();
+        }
     }
 }

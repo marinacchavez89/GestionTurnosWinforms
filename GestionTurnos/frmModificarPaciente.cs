@@ -51,7 +51,7 @@ namespace GestionTurnos
                         Ciudad = new Ciudad { Nombre = txtCiudad.Text }
                     }
                 },
-                Cobertura = new Cobertura
+                Cobertura = new dominio.Cobertura
                 {
                     Descripcion = txtCobertura.Text,
                     PorcentajeCobertura = int.Parse(txtPorcCobertura.Text)

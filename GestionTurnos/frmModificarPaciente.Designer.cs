@@ -49,11 +49,11 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblCobertura = new System.Windows.Forms.Label();
-            this.txtCobertura = new System.Windows.Forms.TextBox();
             this.lblPorcCobertura = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.txtPorcCobertura = new System.Windows.Forms.TextBox();
+            this.txtCobertura = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblApellido
@@ -236,13 +236,6 @@
             this.lblCobertura.TabIndex = 20;
             this.lblCobertura.Text = "Cobertura";
             // 
-            // txtCobertura
-            // 
-            this.txtCobertura.Location = new System.Drawing.Point(12, 434);
-            this.txtCobertura.Name = "txtCobertura";
-            this.txtCobertura.Size = new System.Drawing.Size(257, 20);
-            this.txtCobertura.TabIndex = 21;
-            // 
             // lblPorcCobertura
             // 
             this.lblPorcCobertura.AutoSize = true;
@@ -279,6 +272,13 @@
             this.txtPorcCobertura.Name = "txtPorcCobertura";
             this.txtPorcCobertura.Size = new System.Drawing.Size(37, 20);
             this.txtPorcCobertura.TabIndex = 26;
+            // 
+            // txtCobertura
+            // 
+            this.txtCobertura.Location = new System.Drawing.Point(12, 434);
+            this.txtCobertura.Name = "txtCobertura";
+            this.txtCobertura.Size = new System.Drawing.Size(257, 20);
+            this.txtCobertura.TabIndex = 21;
             // 
             // frmModificarPaciente
             // 
@@ -341,10 +341,10 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblCobertura;
-        private System.Windows.Forms.TextBox txtCobertura;
         private System.Windows.Forms.Label lblPorcCobertura;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtPorcCobertura;
+        private System.Windows.Forms.TextBox txtCobertura;
     }
 }

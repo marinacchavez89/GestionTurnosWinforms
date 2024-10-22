@@ -34,6 +34,7 @@
             this.administrarProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +44,8 @@
             this.administrarPacientesToolStripMenuItem,
             this.administrarProfesionalesToolStripMenuItem,
             this.administrarEspecialidadesToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.coberturasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(989, 24);
@@ -77,6 +79,13 @@
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
+            // coberturasToolStripMenuItem
+            // 
+            this.coberturasToolStripMenuItem.Name = "coberturasToolStripMenuItem";
+            this.coberturasToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.coberturasToolStripMenuItem.Text = "Coberturas";
+            this.coberturasToolStripMenuItem.Click += new System.EventHandler(this.coberturasToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -102,5 +111,6 @@
         private System.Windows.Forms.ToolStripMenuItem administrarProfesionalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrarEspecialidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coberturasToolStripMenuItem;
     }
 }
