@@ -16,15 +16,19 @@ namespace GestionTurnos
     public partial class frmModificarPaciente : Form
     {
         private Paciente paciente;
+        private List<Cobertura> cobertura;
 
         public frmModificarPaciente()
         {
             InitializeComponent();
         }
-        public frmModificarPaciente(Paciente paciente)
+        public frmModificarPaciente(Paciente paciente, List<Cobertura> cobertura)
         {
             InitializeComponent();
+            this.cobertura = cobertura;
+            cargarCoberturas();
             rellenarFormulario(paciente);
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -51,10 +55,10 @@ namespace GestionTurnos
                         Ciudad = new Ciudad { Nombre = txtCiudad.Text }
                     }
                 },
-                Cobertura = new dominio.Cobertura
+                Cobertura = new Cobertura
                 {
-                    Descripcion = txtCobertura.Text,
-                    PorcentajeCobertura = int.Parse(txtPorcCobertura.Text)
+                    IdCobertura = (int)cboCobertura.SelectedValue,
+                    Descripcion = cboCobertura.SelectedValue.ToString(),
                 }
             };
         }
@@ -69,9 +73,14 @@ namespace GestionTurnos
             txtCiudad.Text = paciente.DatosPersonales.Direccion.Ciudad.Nombre;
             txtProvincia.Text = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Nombre;
             txtPais.Text = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre;
-            txtCobertura.Text = paciente.Cobertura.Descripcion;
-            txtPorcCobertura.Text = paciente.Cobertura.PorcentajeCobertura.ToString();
             dtpFechaNacimiento.Value = paciente.DatosPersonales.FechaNacimiento;
+            cboCobertura.Text = paciente.Cobertura.Descripcion;
+        }
+        private void cargarCoberturas()
+        {
+            cboCobertura.DataSource = cobertura;
+            cboCobertura.DisplayMember = "Descripcion";
+            cboCobertura.ValueMember = "IdCobertura";
         }
 
     }

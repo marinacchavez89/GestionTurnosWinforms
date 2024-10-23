@@ -9,6 +9,7 @@ namespace GestionTurnos
     public partial class frmPacientes : Form
     {
         private List<Paciente> listaPaciente;
+        private List<Cobertura> listaCobertura;
         public frmPacientes()
         {
             InitializeComponent();
@@ -18,6 +19,12 @@ namespace GestionTurnos
         {
             PacienteNegocio negocio = new PacienteNegocio();
             listaPaciente = negocio.listar();
+
+            CoberturaNegocio coberturaNegocio = new CoberturaNegocio();
+            listaCobertura = coberturaNegocio.listar();
+
+            
+            
 
             List<PacienteViewModel> listaViewModel = new List<PacienteViewModel>();
 
@@ -37,7 +44,7 @@ namespace GestionTurnos
                 }
                 if (paciente.Cobertura == null)
                 {
-                    paciente.Cobertura = new dominio.Cobertura
+                    paciente.Cobertura = new Cobertura
                     {
                         Descripcion = "Sin Cobertura",
                         PorcentajeCobertura = 0
@@ -114,14 +121,13 @@ namespace GestionTurnos
                             }
                         }
                     },
-                    Cobertura = new dominio.Cobertura
+                    Cobertura = new Cobertura
                         {
                             Descripcion = dgvPacientes.SelectedRows[0].Cells["NombreCobertura"].Value.ToString(),
-                            PorcentajeCobertura = (int)dgvPacientes.SelectedRows[0].Cells["PorcentajeCobertura"].Value
                         }
                 };
 
-                frmModificarPaciente ventana = new frmModificarPaciente(pacienteSeleccionado);
+                frmModificarPaciente ventana = new frmModificarPaciente(pacienteSeleccionado, listaCobertura);
                 ventana.ShowDialog();
                 //actualizar la lista de pacientes luego de que se modifique uno
             }
