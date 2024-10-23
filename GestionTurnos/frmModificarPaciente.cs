@@ -18,13 +18,16 @@ namespace GestionTurnos
         private Paciente paciente;
         private List<Cobertura> cobertura;
 
-        public frmModificarPaciente()
+        public frmModificarPaciente(List<Cobertura> cobertura)
         {
             InitializeComponent();
+            this.cobertura = cobertura;
+            cargarCoberturas();
         }
         public frmModificarPaciente(Paciente paciente, List<Cobertura> cobertura)
         {
             InitializeComponent();
+            this.paciente = paciente;
             this.cobertura = cobertura;
             cargarCoberturas();
             rellenarFormulario(paciente);
@@ -38,31 +41,46 @@ namespace GestionTurnos
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
-            paciente = new Paciente
+
+            try
             {
-                IdPaciente = paciente.IdPaciente,
-                Dni = paciente.Dni,
-                DatosPersonales = new DatosPersonales
+                // Validar los campos necesarios antes de proceder
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) || string.IsNullOrWhiteSpace(txtDni.Text))
                 {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Dni = int.Parse(txtDni.Text),
-                    Email = txtEmail.Text,
-                    Telefono = txtTelefono.Text,
-                    Direccion = new Direccion
-                    {
-                        Calle = txtCalle.Text,
-                        Ciudad = new Ciudad { Nombre = txtCiudad.Text }
-                    }
-                },
-                Cobertura = new Cobertura
-                {
-                    IdCobertura = (int)cboCobertura.SelectedValue,
-                    Descripcion = cboCobertura.SelectedValue.ToString(),
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-            };
+
+                // Actualizar los datos del paciente con los valores del formulario
+                paciente.DatosPersonales.Nombre = txtNombre.Text;
+                paciente.DatosPersonales.Apellido = txtApellido.Text;
+                paciente.DatosPersonales.Dni = int.Parse(txtDni.Text);
+                paciente.DatosPersonales.Email = txtEmail.Text;
+                paciente.DatosPersonales.Telefono = txtTelefono.Text;
+                paciente.DatosPersonales.Direccion.Calle = txtCalle.Text;
+                paciente.DatosPersonales.Direccion.Ciudad.Nombre = txtCiudad.Text;
+                paciente.DatosPersonales.Direccion.Ciudad.Provincia.Nombre = txtProvincia.Text;
+                paciente.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre = txtPais.Text;
+                paciente.DatosPersonales.FechaNacimiento = dtpFechaNacimiento.Value;
+
+                paciente.Cobertura.IdCobertura = (int)cboCobertura.SelectedValue;
+                paciente.Cobertura.Descripcion = cboCobertura.Text;
+
+                // Llamar al método de negocio para guardar o actualizar el paciente
+                PacienteNegocio negocio = new PacienteNegocio();
+                if (paciente.IdPaciente == 0)
+                {
+                    negocio.agregar(paciente);
+                }
+                MessageBox.Show("Paciente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al guardar el paciente: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void rellenarFormulario(Paciente paciente)
+            private void rellenarFormulario(Paciente paciente)
         {
             txtNombre.Text = paciente.DatosPersonales.Nombre;
             txtApellido.Text = paciente.DatosPersonales.Apellido;

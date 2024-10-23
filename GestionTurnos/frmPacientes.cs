@@ -85,7 +85,7 @@ namespace GestionTurnos
 
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
-            frmModificarPaciente ventana = new frmModificarPaciente();
+            frmModificarPaciente ventana = new frmModificarPaciente(listaCobertura);
             ventana.ShowDialog();
         }
 
