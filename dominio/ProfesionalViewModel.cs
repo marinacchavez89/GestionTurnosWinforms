@@ -11,7 +11,8 @@ namespace dominio
     {
         public int IdProfesional { get; set; }
         public int Matricula { get; set; }
-        public string Especialidad { get; set; }
+        [DisplayName("Especialidad")]
+        public string Descripcion { get; set; }
         public decimal Honorario { get; set; }
         public int Dni { get; set; }           
         public string Nombre { get; set; }
@@ -22,6 +23,13 @@ namespace dominio
 
         [DisplayName("Dirección")]
         public string DireccionCalle { get; set; }
+        [DisplayName("Ciudad")]
+        public string DireccionCiudad { get; set; }
+        [DisplayName("Provincia")]
+        public string DireccionProvincia { get; set; }
+
+        [DisplayName("País")]
+        public string DireccionPais { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
 

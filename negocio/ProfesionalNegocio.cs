@@ -16,25 +16,29 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta(@"SELECT P.idProfesional, P.Matricula, P.Honorario, E.Nombre AS Especialidad, DP.DNI, DP.Nombre, DP .Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, D.Calle
+                datos.setearConsulta(@"SELECT P.idProfesional, P.Matricula, P.Honorario, E.Nombre AS Especialidad, DP.DNI, DP.Nombre, DP .Apellido, DP.FechaNacimiento, DP.Email, DP.Telefono, D.Calle, CI.Nombre AS Ciudad, PR.Nombre AS Provincia , PA.Nombre AS Pais
                                        FROM Profesional AS P 
                                        INNER JOIN DatosPersonales AS DP ON P.DNI = DP.DNI 
-                                       INNER JOIN Direccion AS D ON DP.idDireccion = D.idDireccion
                                        INNER JOIN Especialidad AS E ON P.idEspecialidad = E.idEspecialidad
+                                       INNER JOIN Direccion AS D ON DP.idDireccion = D.idDireccion
+                                       INNER JOIN Ciudad  CI ON D.idCiudad = CI.idCiudad
+                                       INNER JOIN Provincia  PR ON CI.idProvincia = PR.idProvincia
+                                       INNER JOIN Pais  PA ON PR.idPais = PA.idPais
                                        WHERE P.Activo = 1");
                 datos.ejecutarLectura();
 
-                while(datos.Lector.Read())
+
+                while (datos.Lector.Read())
                 {
                     Profesional aux = new Profesional
                     {
-                        IdProfesional= (int)datos.Lector["idProfesional"],
+                        IdProfesional = (int)datos.Lector["idProfesional"],
                         Matricula = (int)datos.Lector["Matricula"],
                         Honorario = (decimal)datos.Lector["Honorario"],
 
                         Especialidad = new Especialidad
                         {
-                            Descripcion = (string)datos.Lector["Especialidad"]                            
+                            Descripcion = (string)datos.Lector["Especialidad"]
                         },
 
                         Dni = (int)datos.Lector["DNI"],
@@ -49,7 +53,20 @@ namespace negocio
                             Telefono = (string)datos.Lector["Telefono"],
                             Direccion = new Direccion
                             {
-                                Calle = (string)datos.Lector["Calle"]
+                                Calle = (string)datos.Lector["Calle"],
+                                Ciudad = new Ciudad
+                                {
+                                    Nombre = (string)datos.Lector["Ciudad"],
+                                    Provincia = new Provincia
+                                    {
+                                        Nombre = (string)datos.Lector["Provincia"],
+                                        Pais = new Pais
+                                        {
+                                            Nombre = (string)datos.Lector["Pais"]
+                                        }
+                                    }
+
+                                }
                             }
                         }
                     };
@@ -58,7 +75,7 @@ namespace negocio
                 }
 
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
 
                 throw ex;

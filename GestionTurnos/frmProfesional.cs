@@ -53,15 +53,18 @@ namespace GestionTurnos
                 {
                     IdProfesional = profesional.IdProfesional,
                     Matricula = profesional.Matricula,
-                    Especialidad = profesional.Especialidad.Descripcion,
+                    Descripcion = profesional.Especialidad.Descripcion,
                     Honorario = profesional.Honorario,
                     Dni = profesional.Dni,
                     Nombre = profesional.DatosPersonales.Nombre,
                     Apellido = profesional.DatosPersonales.Apellido,
                     FechaNacimiento = profesional.DatosPersonales.FechaNacimiento,
                     DireccionCalle = profesional.DatosPersonales.Direccion.Calle,
+                    DireccionCiudad = profesional.DatosPersonales.Direccion.Ciudad.Nombre,
+                    DireccionProvincia = profesional.DatosPersonales.Direccion.Ciudad.Provincia.Nombre,
+                    DireccionPais = profesional.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre,
                     Email = profesional.DatosPersonales.Email,
-                    Telefono = profesional.DatosPersonales.Telefono                  
+                    Telefono = profesional.DatosPersonales.Telefono
                 };
 
                 listaViewModel.Add(viewModel);
