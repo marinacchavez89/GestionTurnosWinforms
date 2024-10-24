@@ -52,11 +52,11 @@ namespace GestionTurnos
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
-            this.txtEspecialidad = new System.Windows.Forms.TextBox();
             this.lblHonorario = new System.Windows.Forms.Label();
             this.txtHonorario = new System.Windows.Forms.TextBox();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cboEspecialidad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblMatricula
@@ -256,13 +256,6 @@ namespace GestionTurnos
             this.lblEspecialidad.TabIndex = 23;
             this.lblEspecialidad.Text = "Especialidad";
             // 
-            // txtEspecialidad
-            // 
-            this.txtEspecialidad.Location = new System.Drawing.Point(110, 44);
-            this.txtEspecialidad.Name = "txtEspecialidad";
-            this.txtEspecialidad.Size = new System.Drawing.Size(114, 20);
-            this.txtEspecialidad.TabIndex = 24;
-            // 
             // lblHonorario
             // 
             this.lblHonorario.AutoSize = true;
@@ -300,16 +293,24 @@ namespace GestionTurnos
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cboEspecialidad
+            // 
+            this.cboEspecialidad.FormattingEnabled = true;
+            this.cboEspecialidad.Location = new System.Drawing.Point(110, 48);
+            this.cboEspecialidad.Name = "cboEspecialidad";
+            this.cboEspecialidad.Size = new System.Drawing.Size(121, 21);
+            this.cboEspecialidad.TabIndex = 29;
+            // 
             // frmModificarProfesional
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 558);
+            this.Controls.Add(this.cboEspecialidad);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.txtHonorario);
             this.Controls.Add(this.lblHonorario);
-            this.Controls.Add(this.txtEspecialidad);
             this.Controls.Add(this.lblEspecialidad);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
@@ -365,10 +366,10 @@ namespace GestionTurnos
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblEspecialidad;
-        private System.Windows.Forms.TextBox txtEspecialidad;
         private System.Windows.Forms.Label lblHonorario;
         private System.Windows.Forms.TextBox txtHonorario;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ComboBox cboEspecialidad;
     }
 }

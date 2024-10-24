@@ -15,6 +15,7 @@ namespace GestionTurnos
     public partial class frmProfesional : Form
     {
         private List<Profesional> listaProfesional;
+        private List<Especialidad> listaEspecialidad;
         public frmProfesional()
         {
             InitializeComponent();
@@ -24,6 +25,8 @@ namespace GestionTurnos
         {
             ProfesionalNegocio negocio = new ProfesionalNegocio();
             listaProfesional = negocio.listar();
+            EspecialidadNegocio especialidadNegocio = new EspecialidadNegocio();
+            listaEspecialidad = especialidadNegocio.listar();
 
             List<ProfesionalViewModel> listaViewModel = new List<ProfesionalViewModel>();
 
@@ -84,7 +87,7 @@ namespace GestionTurnos
 
         private void btnAgregarProfesional_Click(object sender, EventArgs e)
         {
-            frmModificarProfesional ventana = new frmModificarProfesional();
+            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);
             ventana.ShowDialog();
         }
 

@@ -87,6 +87,8 @@ namespace negocio
             return lista;
         }
 
+       
+
 
 
         public void eliminar(int id)
