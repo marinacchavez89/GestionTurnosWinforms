@@ -20,65 +20,10 @@ namespace GestionTurnos
 
         private void frmPacientes_Load(object sender, EventArgs e)
         {
-            PacienteNegocio negocio = new PacienteNegocio();
-            listaPaciente = negocio.listar();
+            CargarPacientes(); // Carga la lista de pacientes al iniciar el formulario
 
             CoberturaNegocio coberturaNegocio = new CoberturaNegocio();
             listaCobertura = coberturaNegocio.listar();
-
-            
-            
-
-            List<PacienteViewModel> listaViewModel = new List<PacienteViewModel>();
-
-            foreach (Paciente paciente in listaPaciente)
-            {
-                if (paciente.DatosPersonales == null)
-                {
-                    paciente.DatosPersonales = new DatosPersonales
-                    {
-                        Nombre = "No especificado",
-                        Apellido = "No especificado",
-                        FechaNacimiento = DateTime.MinValue,
-                        Direccion = new Direccion { Calle = "No especificado" },
-                        Email = "No especificado",
-                        Telefono = "No especificado"
-                    };
-                }
-                if (paciente.Cobertura == null)
-                {
-                    paciente.Cobertura = new Cobertura
-                    {
-                        Descripcion = "Sin Cobertura",
-                        PorcentajeCobertura = 0
-                    };
-                }
-                
-                PacienteViewModel viewModel = new PacienteViewModel
-                {
-                    IdPaciente = paciente.IdPaciente,
-                    Dni = paciente.Dni,
-                    Nombre = paciente.DatosPersonales.Nombre,
-                    Apellido = paciente.DatosPersonales.Apellido,
-                    FechaNacimiento = paciente.DatosPersonales.FechaNacimiento,
-                    DireccionCalle = paciente.DatosPersonales.Direccion.Calle,
-                    DireccionCiudad = paciente.DatosPersonales.Direccion.Ciudad.Nombre,
-                    DireccionProvincia = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Nombre,
-                    DireccionPais = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre,
-                    Email = paciente.DatosPersonales.Email,
-                    Telefono = paciente.DatosPersonales.Telefono,
-                    NombreCobertura = paciente.Cobertura.Descripcion,
-                    PorcentajeCobertura = paciente.Cobertura.PorcentajeCobertura
-                };
-
-                listaViewModel.Add(viewModel);
-
-            }
-
-            dgvPacientes.DataSource = listaViewModel;
-            dgvPacientes.Refresh();
-
-            ocultarColumnas();
         }
 
         private void ocultarColumnas()
@@ -90,6 +35,7 @@ namespace GestionTurnos
         {
             frmModificarPaciente ventana = new frmModificarPaciente(listaCobertura, listaProvincias, listaCiudades);
             ventana.ShowDialog();
+            CargarPacientes();
         }
 
         private void btnModificarPaciente_Click(object sender, EventArgs e)
@@ -143,6 +89,61 @@ namespace GestionTurnos
         private void btnSalirPaciente_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CargarPacientes()
+        {
+            PacienteNegocio negocio = new PacienteNegocio();
+            listaPaciente = negocio.listar();
+
+            List<PacienteViewModel> listaViewModel = new List<PacienteViewModel>();
+
+            foreach (Paciente paciente in listaPaciente)
+            {
+                if (paciente.DatosPersonales == null)
+                {
+                    paciente.DatosPersonales = new DatosPersonales
+                    {
+                        Nombre = "No especificado",
+                        Apellido = "No especificado",
+                        FechaNacimiento = DateTime.MinValue,
+                        Direccion = new Direccion { Calle = "No especificado" },
+                        Email = "No especificado",
+                        Telefono = "No especificado"
+                    };
+                }
+                if (paciente.Cobertura == null)
+                {
+                    paciente.Cobertura = new Cobertura
+                    {
+                        Descripcion = "Sin Cobertura",
+                        PorcentajeCobertura = 0
+                    };
+                }
+
+                PacienteViewModel viewModel = new PacienteViewModel
+                {
+                    IdPaciente = paciente.IdPaciente,
+                    Dni = paciente.Dni,
+                    Nombre = paciente.DatosPersonales.Nombre,
+                    Apellido = paciente.DatosPersonales.Apellido,
+                    FechaNacimiento = paciente.DatosPersonales.FechaNacimiento,
+                    DireccionCalle = paciente.DatosPersonales.Direccion.Calle,
+                    DireccionCiudad = paciente.DatosPersonales.Direccion.Ciudad.Nombre,
+                    DireccionProvincia = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Nombre,
+                    DireccionPais = paciente.DatosPersonales.Direccion.Ciudad.Provincia.Pais.Nombre,
+                    Email = paciente.DatosPersonales.Email,
+                    Telefono = paciente.DatosPersonales.Telefono,
+                    NombreCobertura = paciente.Cobertura.Descripcion,
+                    PorcentajeCobertura = paciente.Cobertura.PorcentajeCobertura
+                };
+
+                listaViewModel.Add(viewModel);
+            }
+
+            dgvPacientes.DataSource = listaViewModel;
+            dgvPacientes.Refresh();
+            ocultarColumnas();
         }
     }
 }

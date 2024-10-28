@@ -59,6 +59,10 @@ namespace negocio
 
                 throw ex;
             }
+            finally
+            {
+                cerrarConexion();
+            }
         }
 
         public void setearParametro(string nombre, object valor)
@@ -70,7 +74,8 @@ namespace negocio
         {
             if (lector != null)
                 lector.Close();
-            conexion.Close();
+            if (conexion.State == System.Data.ConnectionState.Open)
+                conexion.Close();
         }
 
         public object ejecutarScalar()
@@ -90,11 +95,8 @@ namespace negocio
             }
             finally
             {
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
-                comando.Parameters.Clear();
+                cerrarConexion();
+                comando.Parameters.Clear(); 
             }
         }
 

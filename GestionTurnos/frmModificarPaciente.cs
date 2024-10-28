@@ -108,13 +108,13 @@ namespace GestionTurnos
                 PacienteNegocio negocio = new PacienteNegocio();
                 if (paciente.IdPaciente == 0)
                 {
-                    negocio.agregar(paciente);
+                    negocio.agregar(paciente);                    
                     MessageBox.Show("Paciente agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    negocio.modificar(paciente);
+                    negocio.modificar(paciente);                    
                     MessageBox.Show("Paciente modificado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }                           
