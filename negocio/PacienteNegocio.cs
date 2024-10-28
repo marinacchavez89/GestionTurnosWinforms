@@ -104,7 +104,7 @@ namespace negocio
                 datos.setearConsulta("INSERT INTO Direccion (Calle, idCiudad) OUTPUT INSERTED.idDireccion " +
                                      "VALUES (@calle, @idCiudad)");
                 datos.setearParametro("@calle", paciente.DatosPersonales.Direccion.Calle);
-                datos.setearParametro("@idCiudad", paciente.DatosPersonales.Direccion.Ciudad);
+                datos.setearParametro("@idCiudad", paciente.DatosPersonales.Direccion.Ciudad.IdCiudad);
 
                 paciente.DatosPersonales.Direccion.IdDireccion = (int)datos.ejecutarScalar();
 
@@ -145,7 +145,7 @@ namespace negocio
                   validarDatosPaciente(paciente);
 
 
-                // actualiamoa la direccion
+                // actualiamos la direccion
                 datos.setearConsulta("UPDATE Direccion SET" +
                     " Calle = @calle, idCiudad = @idCiudad WHERE idDireccion = @idDireccion");
                 datos.setearParametro("@calle", paciente.DatosPersonales.Direccion.Calle);

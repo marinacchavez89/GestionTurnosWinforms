@@ -10,6 +10,9 @@ namespace GestionTurnos
     {
         private List<Paciente> listaPaciente;
         private List<Cobertura> listaCobertura;
+        private List<Provincia> listaProvincias;
+        private List<Ciudad> listaCiudades;
+
         public frmPacientes()
         {
             InitializeComponent();
@@ -85,7 +88,7 @@ namespace GestionTurnos
 
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
-            frmModificarPaciente ventana = new frmModificarPaciente(listaCobertura);
+            frmModificarPaciente ventana = new frmModificarPaciente(listaCobertura, listaProvincias, listaCiudades);
             ventana.ShowDialog();
         }
 
@@ -127,7 +130,7 @@ namespace GestionTurnos
                         }
                 };
 
-                frmModificarPaciente ventana = new frmModificarPaciente(pacienteSeleccionado, listaCobertura);
+                frmModificarPaciente ventana = new frmModificarPaciente(pacienteSeleccionado, listaCobertura, listaProvincias, listaCiudades);
                 ventana.ShowDialog();
                 //actualizar la lista de pacientes luego de que se modifique uno
             }
