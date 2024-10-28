@@ -38,6 +38,7 @@ namespace GestionTurnos
         private void ocultarColumnas()
         {
             dgvCobertura.Columns["IdCobertura"].Visible = false;
+            dgvCobertura.Columns["Activo"].Visible = false;
         }
 
         private void btnSalirCobertura_Click(object sender, EventArgs e)
@@ -103,7 +104,7 @@ namespace GestionTurnos
                 }
 
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Debe seleccionar al menos una Cobertura para eliminar.", "Cobertura", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cargar();

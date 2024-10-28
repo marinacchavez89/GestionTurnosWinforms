@@ -87,13 +87,19 @@ namespace GestionTurnos
 
         private void btnAgregarProfesional_Click(object sender, EventArgs e)
         {
-            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);
+            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);            
             ventana.ShowDialog();
         }
 
         private void btnSalirProfesional_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);            
+            ventana.ShowDialog();
         }
     }
 }

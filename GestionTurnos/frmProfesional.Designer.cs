@@ -62,7 +62,7 @@ namespace GestionTurnos
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(244, 271);
+            this.btnEliminar.Location = new System.Drawing.Point(214, 271);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(82, 32);
             this.btnEliminar.TabIndex = 2;
@@ -71,16 +71,17 @@ namespace GestionTurnos
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(126, 271);
+            this.btnModificar.Location = new System.Drawing.Point(112, 271);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(82, 32);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSalirProfesional
             // 
-            this.btnSalirProfesional.Location = new System.Drawing.Point(962, 301);
+            this.btnSalirProfesional.Location = new System.Drawing.Point(973, 271);
             this.btnSalirProfesional.Name = "btnSalirProfesional";
             this.btnSalirProfesional.Size = new System.Drawing.Size(82, 32);
             this.btnSalirProfesional.TabIndex = 4;

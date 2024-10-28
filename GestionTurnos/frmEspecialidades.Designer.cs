@@ -36,6 +36,7 @@
             this.btnSalirEspecialidad = new System.Windows.Forms.Button();
             this.txtAgregarEspecialidad = new System.Windows.Forms.TextBox();
             this.lblAgregarEspecialidad = new System.Windows.Forms.Label();
+            this.lblTituloEspecialidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,16 +45,16 @@
             this.dgvEspecialidades.BackgroundColor = System.Drawing.Color.White;
             this.dgvEspecialidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(112, 23);
+            this.dgvEspecialidades.Location = new System.Drawing.Point(44, 23);
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
             this.dgvEspecialidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEspecialidades.Size = new System.Drawing.Size(156, 150);
+            this.dgvEspecialidades.Size = new System.Drawing.Size(309, 150);
             this.dgvEspecialidades.TabIndex = 0;
             // 
             // btnAgregarEspecialidad
             // 
-            this.btnAgregarEspecialidad.Location = new System.Drawing.Point(157, 336);
+            this.btnAgregarEspecialidad.Location = new System.Drawing.Point(291, 350);
             this.btnAgregarEspecialidad.Name = "btnAgregarEspecialidad";
             this.btnAgregarEspecialidad.Size = new System.Drawing.Size(62, 22);
             this.btnAgregarEspecialidad.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             // btnModificarEspecialidad
             // 
-            this.btnModificarEspecialidad.Location = new System.Drawing.Point(112, 196);
+            this.btnModificarEspecialidad.Location = new System.Drawing.Point(291, 196);
             this.btnModificarEspecialidad.Name = "btnModificarEspecialidad";
             this.btnModificarEspecialidad.Size = new System.Drawing.Size(62, 23);
             this.btnModificarEspecialidad.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             // btnEliminarEspecialidad
             // 
-            this.btnEliminarEspecialidad.Location = new System.Drawing.Point(206, 196);
+            this.btnEliminarEspecialidad.Location = new System.Drawing.Point(44, 196);
             this.btnEliminarEspecialidad.Name = "btnEliminarEspecialidad";
             this.btnEliminarEspecialidad.Size = new System.Drawing.Size(62, 23);
             this.btnEliminarEspecialidad.TabIndex = 3;
@@ -83,7 +84,7 @@
             // 
             // btnSalirEspecialidad
             // 
-            this.btnSalirEspecialidad.Location = new System.Drawing.Point(314, 363);
+            this.btnSalirEspecialidad.Location = new System.Drawing.Point(112, 196);
             this.btnSalirEspecialidad.Name = "btnSalirEspecialidad";
             this.btnSalirEspecialidad.Size = new System.Drawing.Size(62, 23);
             this.btnSalirEspecialidad.TabIndex = 4;
@@ -93,25 +94,36 @@
             // 
             // txtAgregarEspecialidad
             // 
-            this.txtAgregarEspecialidad.Location = new System.Drawing.Point(112, 300);
+            this.txtAgregarEspecialidad.Location = new System.Drawing.Point(177, 313);
             this.txtAgregarEspecialidad.Name = "txtAgregarEspecialidad";
-            this.txtAgregarEspecialidad.Size = new System.Drawing.Size(168, 20);
+            this.txtAgregarEspecialidad.Size = new System.Drawing.Size(176, 20);
             this.txtAgregarEspecialidad.TabIndex = 5;
             // 
             // lblAgregarEspecialidad
             // 
             this.lblAgregarEspecialidad.AutoSize = true;
-            this.lblAgregarEspecialidad.Location = new System.Drawing.Point(91, 273);
+            this.lblAgregarEspecialidad.Location = new System.Drawing.Point(41, 316);
             this.lblAgregarEspecialidad.Name = "lblAgregarEspecialidad";
-            this.lblAgregarEspecialidad.Size = new System.Drawing.Size(210, 13);
+            this.lblAgregarEspecialidad.Size = new System.Drawing.Size(129, 13);
             this.lblAgregarEspecialidad.TabIndex = 6;
-            this.lblAgregarEspecialidad.Text = "Ingrese la especialidad que desea agregar:";
+            this.lblAgregarEspecialidad.Text = "Descripción Especialidad:";
+            // 
+            // lblTituloEspecialidad
+            // 
+            this.lblTituloEspecialidad.AutoSize = true;
+            this.lblTituloEspecialidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloEspecialidad.Location = new System.Drawing.Point(40, 274);
+            this.lblTituloEspecialidad.Name = "lblTituloEspecialidad";
+            this.lblTituloEspecialidad.Size = new System.Drawing.Size(180, 20);
+            this.lblTituloEspecialidad.TabIndex = 7;
+            this.lblTituloEspecialidad.Text = "Agregar Especialidad";
             // 
             // frmEspecialidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(398, 398);
+            this.Controls.Add(this.lblTituloEspecialidad);
             this.Controls.Add(this.lblAgregarEspecialidad);
             this.Controls.Add(this.txtAgregarEspecialidad);
             this.Controls.Add(this.btnSalirEspecialidad);
@@ -139,5 +151,6 @@
         private System.Windows.Forms.Button btnSalirEspecialidad;
         private System.Windows.Forms.TextBox txtAgregarEspecialidad;
         private System.Windows.Forms.Label lblAgregarEspecialidad;
+        private System.Windows.Forms.Label lblTituloEspecialidad;
     }
 }

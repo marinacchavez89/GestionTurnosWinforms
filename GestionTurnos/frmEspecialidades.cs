@@ -104,7 +104,7 @@ namespace GestionTurnos
                 }
 
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Debe seleccionar al menos una especialidad para eliminar.", "Especialidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cargar();

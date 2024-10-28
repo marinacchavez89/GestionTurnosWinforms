@@ -21,7 +21,7 @@ namespace GestionTurnos
         {
             InitializeComponent();
             this.especialidad = especialidad;
-            cargarEspecialidad();
+            cargarEspecialidad();            
         }
 
         public frmModificarProfesional(Profesional profesional, List<Especialidad> especialidad)
@@ -30,7 +30,7 @@ namespace GestionTurnos
             this.profesional = profesional;
             this.especialidad = especialidad;
             cargarEspecialidad();
-            rellenarFormulario(profesional);
+            rellenarFormulario(profesional);            
 
         }
 
@@ -67,13 +67,8 @@ namespace GestionTurnos
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
-
-
-
-
-
 
         }
 
@@ -81,7 +76,5 @@ namespace GestionTurnos
         {
             this.Close();
         }
-
-        
     }
 }

@@ -25,8 +25,7 @@ namespace GestionTurnos
         private void frmModificarCobertura_Load(object sender, EventArgs e)
         {
             txtDescripcionCobertura.Text = seleccionado.Descripcion;
-            txtPorcentajeCobertura.Text = seleccionado.PorcentajeCobertura.ToString();
-            chkActivo.Checked = seleccionado.Activo;
+            txtPorcentajeCobertura.Text = seleccionado.PorcentajeCobertura.ToString();           
         }
 
         private void btnSalirCoberturaSalir_Click(object sender, EventArgs e)
@@ -51,8 +50,7 @@ namespace GestionTurnos
                 }
 
                 seleccionado.Descripcion = txtDescripcionCobertura.Text;
-                seleccionado.PorcentajeCobertura = porcentaje;
-                seleccionado.Activo = chkActivo.Checked;
+                seleccionado.PorcentajeCobertura = porcentaje;                
                 DialogResult respuesta = MessageBox.Show("¿Está seguro que desea modificar la cobertura?", "Modificar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
