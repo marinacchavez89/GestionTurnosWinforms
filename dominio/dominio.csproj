@@ -49,7 +49,9 @@
     <Compile Include="Direccion.cs" />
     <Compile Include="Especialidad.cs" />
     <Compile Include="EstadoTurno.cs" />
+    <Compile Include="Horario.cs" />
     <Compile Include="HorarioProfesional.cs" />
+    <Compile Include="HorarioViewModel.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="PacienteViewModel.cs" />
     <Compile Include="Pais.cs" />

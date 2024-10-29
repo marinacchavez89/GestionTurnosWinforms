@@ -41,5 +41,11 @@ namespace GestionTurnos
             frmCobertura ventana = new frmCobertura();
             ventana.ShowDialog();
         }
+
+        private void horariosProfesionalesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHorariosProfesionales ventana = new frmHorariosProfesionales();
+            ventana.ShowDialog();
+        }
     }
 }

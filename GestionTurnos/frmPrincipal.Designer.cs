@@ -35,6 +35,7 @@
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horariosProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.administrarPacientesToolStripMenuItem,
             this.administrarProfesionalesToolStripMenuItem,
+            this.horariosProfesionalesToolStripMenuItem,
             this.administrarEspecialidadesToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.coberturasToolStripMenuItem});
@@ -86,6 +88,13 @@
             this.coberturasToolStripMenuItem.Text = "Coberturas";
             this.coberturasToolStripMenuItem.Click += new System.EventHandler(this.coberturasToolStripMenuItem_Click);
             // 
+            // horariosProfesionalesToolStripMenuItem
+            // 
+            this.horariosProfesionalesToolStripMenuItem.Name = "horariosProfesionalesToolStripMenuItem";
+            this.horariosProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            this.horariosProfesionalesToolStripMenuItem.Text = "Horarios Profesionales";
+            this.horariosProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.horariosProfesionalesToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,5 +121,6 @@
         private System.Windows.Forms.ToolStripMenuItem administrarEspecialidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horariosProfesionalesToolStripMenuItem;
     }
 }

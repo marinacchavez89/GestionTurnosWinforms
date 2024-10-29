@@ -87,10 +87,6 @@ namespace negocio
             return lista;
         }
 
-       
-
-
-
         public void eliminar(int id)
         {
             try
@@ -106,6 +102,72 @@ namespace negocio
             }
         }
 
+        public List<Profesional> listarConHorarios()
+        {
+            List<Profesional> lista = new List<Profesional>();
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearProcedimiento("ListarHorariosProfesionalesConDatos");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    int matricula = (int)datos.Lector["Matricula"];
+                    string nombre = (string)datos.Lector["Nombre"];
+                    string apellido = (string)datos.Lector["Apellido"];
+                    string especialidadDescripcion = (string)datos.Lector["Especialidad"];
+                    byte diaAtencion = (byte)datos.Lector["DiaAtencion"];
+                    TimeSpan horaInicio = (TimeSpan)datos.Lector["HoraInicio"];
+                    TimeSpan horaFin = (TimeSpan)datos.Lector["HoraFin"];
+
+                    // Buscar si el profesional ya existe en la lista
+                    Profesional profesional = lista.FirstOrDefault(p => p.Matricula == matricula);
+
+                    if (profesional == null)
+                    {
+                        // Si no existe, crear uno nuevo
+                        profesional = new Profesional
+                        {
+                            Matricula = matricula,
+                            DatosPersonales = new DatosPersonales
+                            {
+                                Nombre = nombre,
+                                Apellido = apellido,
+                            },
+                            Especialidad = new Especialidad
+                            {
+                                Descripcion = especialidadDescripcion,
+                            },
+                            Horarios = new List<Horario>()
+                        };
+
+                        lista.Add(profesional);
+                    }
+
+                    // Agregar el horario
+                    Horario horario = new Horario
+                    {
+                        DiaAtencion = diaAtencion,
+                        HoraInicio = horaInicio,
+                        HoraFin = horaFin
+                    };
+
+                    profesional.Horarios.Add(horario);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en listarConHorarios: " + ex.Message);
+                //throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return lista;
+        }
     }
 }
