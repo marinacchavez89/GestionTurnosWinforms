@@ -32,10 +32,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.administrarPacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horariosProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.horariosProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,13 @@
             this.administrarProfesionalesToolStripMenuItem.Text = "Profesionales";
             this.administrarProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.administrarProfesionalesToolStripMenuItem_Click);
             // 
+            // horariosProfesionalesToolStripMenuItem
+            // 
+            this.horariosProfesionalesToolStripMenuItem.Name = "horariosProfesionalesToolStripMenuItem";
+            this.horariosProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
+            this.horariosProfesionalesToolStripMenuItem.Text = "Horarios Profesionales";
+            this.horariosProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.horariosProfesionalesToolStripMenuItem_Click);
+            // 
             // administrarEspecialidadesToolStripMenuItem
             // 
             this.administrarEspecialidadesToolStripMenuItem.Name = "administrarEspecialidadesToolStripMenuItem";
@@ -80,6 +87,7 @@
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // coberturasToolStripMenuItem
             // 
@@ -87,13 +95,6 @@
             this.coberturasToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.coberturasToolStripMenuItem.Text = "Coberturas";
             this.coberturasToolStripMenuItem.Click += new System.EventHandler(this.coberturasToolStripMenuItem_Click);
-            // 
-            // horariosProfesionalesToolStripMenuItem
-            // 
-            this.horariosProfesionalesToolStripMenuItem.Name = "horariosProfesionalesToolStripMenuItem";
-            this.horariosProfesionalesToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.horariosProfesionalesToolStripMenuItem.Text = "Horarios Profesionales";
-            this.horariosProfesionalesToolStripMenuItem.Click += new System.EventHandler(this.horariosProfesionalesToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

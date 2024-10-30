@@ -138,7 +138,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                  validarDatosPaciente(paciente);
+                validarDatosPaciente(paciente);
 
 
                 // actualiamos la direccion
@@ -190,5 +190,42 @@ namespace negocio
                 throw new Exception("Los campos Nombre, Apellido, Email, Teléfono y Calle no pueden estar vacíos.");
             }
         }
-       
-    } }
+
+        public PacienteViewModel ObtenerPacientePorDni(int dni)
+        {
+            PacienteViewModel pacienteVM = null;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT * FROM dbo.fn_CalcularEdadYTipoPaciente(@DNI)");
+                datos.setearParametro("@DNI", dni);
+                datos.ejecutarLectura();
+
+                if(datos.Lector.Read())
+                {
+                    pacienteVM = new PacienteViewModel
+                    {
+                        Dni = dni,
+                        Nombre = (string)datos.Lector["Nombre"],
+                        Apellido = (string)datos.Lector["Apellido"],
+                        Edad = (int)datos.Lector["Edad"],
+                        TipoPaciente = (string)datos.Lector["TipoPaciente"]
+                    };
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            return pacienteVM;
+        }
+
+    }
+}

@@ -17,6 +17,12 @@ namespace dominio
         [DisplayName("Fecha Nac.")]
         public DateTime FechaNacimiento { get; set; }
 
+        //se agregó edad y tipo para usar en la función de reportes
+
+        public int Edad { get; set; }
+
+        public string TipoPaciente { get; set; }
+
         [DisplayName("Dirección")]
         public string DireccionCalle { get; set; }
         [DisplayName("Ciudad")]
