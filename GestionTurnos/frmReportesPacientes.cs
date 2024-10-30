@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace GestionTurnos
 {
@@ -19,6 +20,16 @@ namespace GestionTurnos
             InitializeComponent();
         }
 
+        private void ConfigurarColumnas()
+        {
+            dgvReportePacientes.Columns.Clear(); // Limpia todas las columnas para evitar duplicación.
+
+            dgvReportePacientes.Columns.Add("Nombre", "Nombre");
+            dgvReportePacientes.Columns.Add("Apellido", "Apellido");
+            dgvReportePacientes.Columns.Add("Edad", "Edad");
+            dgvReportePacientes.Columns.Add("TipoPaciente", "Tipo de Paciente");
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             int dni;
@@ -27,6 +38,7 @@ namespace GestionTurnos
             {
                 PacienteNegocio negocio = new PacienteNegocio();
                 PacienteViewModel paciente = negocio.ObtenerPacientePorDni(dni);
+                ConfigurarColumnas();
                 dgvReportePacientes.Rows.Clear();
 
                 if (paciente != null)
@@ -47,15 +59,34 @@ namespace GestionTurnos
 
         private void frmReportesPacientes_Load(object sender, EventArgs e)
         {
-            dgvReportePacientes.Columns.Add("Nombre", "Nombre");
-            dgvReportePacientes.Columns.Add("Apellido", "Apellido");
-            dgvReportePacientes.Columns.Add("Edad", "Edad");
-            dgvReportePacientes.Columns.Add("TipoPaciente", "Tipo de Paciente");
+            ConfigurarColumnas();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnListarTodos_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                PacienteNegocio negocio = new PacienteNegocio();                
+                List<PacienteViewModel> listaPacientes = negocio.ObtenerPacientes();
+              
+                dgvReportePacientes.Rows.Clear();
+
+                foreach (var paciente in listaPacientes)
+                {
+                    dgvReportePacientes.Rows.Add(paciente.Nombre, paciente.Apellido, paciente.Edad, paciente.TipoPaciente);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar los pacientes: " + ex.Message);
+            }
+
         }
     }
 }

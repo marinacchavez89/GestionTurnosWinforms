@@ -227,5 +227,42 @@ namespace negocio
             return pacienteVM;
         }
 
+        public List<PacienteViewModel> ObtenerPacientes()
+        {
+            List<PacienteViewModel> listaPacientes = new List<PacienteViewModel>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                // Consulta a la vista que lista todos los pacientes con su tipo
+                datos.setearConsulta("SELECT * FROM vw_PacientesConTipo");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    PacienteViewModel pacienteVM = new PacienteViewModel
+                    {
+                        Dni = (int)datos.Lector["DNI"],
+                        Nombre = (string)datos.Lector["Nombre"],
+                        Apellido = (string)datos.Lector["Apellido"],
+                        Edad = (int)datos.Lector["Edad"],
+                        TipoPaciente = (string)datos.Lector["TipoPaciente"]
+                    };
+
+                    listaPacientes.Add(pacienteVM);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return listaPacientes;
+        }
+
     }
 }
