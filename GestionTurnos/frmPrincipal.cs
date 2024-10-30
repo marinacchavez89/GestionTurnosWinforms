@@ -48,7 +48,7 @@ namespace GestionTurnos
             ventana.ShowDialog();
         }
 
-        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pacientesPorEdadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReportesPacientes ventana = new frmReportesPacientes();
             ventana.ShowDialog();

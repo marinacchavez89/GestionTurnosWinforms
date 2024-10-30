@@ -29,6 +29,7 @@ namespace GestionTurnos
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportesPacientes));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblDNI = new System.Windows.Forms.Label();
@@ -49,7 +50,7 @@ namespace GestionTurnos
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(170, 305);
+            this.btnSalir.Location = new System.Drawing.Point(418, 272);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 33);
             this.btnSalir.TabIndex = 1;
@@ -75,24 +76,28 @@ namespace GestionTurnos
             // 
             // dgvReportePacientes
             // 
+            this.dgvReportePacientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReportePacientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReportePacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReportePacientes.Location = new System.Drawing.Point(31, 164);
             this.dgvReportePacientes.Name = "dgvReportePacientes";
-            this.dgvReportePacientes.Size = new System.Drawing.Size(518, 85);
+            this.dgvReportePacientes.ReadOnly = true;
+            this.dgvReportePacientes.Size = new System.Drawing.Size(462, 85);
             this.dgvReportePacientes.TabIndex = 4;
             // 
             // frmReportesPacientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 450);
+            this.ClientSize = new System.Drawing.Size(525, 335);
             this.Controls.Add(this.dgvReportePacientes);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.lblDNI);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportesPacientes";
-            this.Text = "frmReportesPacientes";
+            this.Text = "Pacientes por edad";
             this.Load += new System.EventHandler(this.frmReportesPacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportePacientes)).EndInit();
             this.ResumeLayout(false);

@@ -36,6 +36,7 @@
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pacientesPorEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,10 +85,12 @@
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pacientesPorEdadToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
-            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            
             // 
             // coberturasToolStripMenuItem
             // 
@@ -95,6 +98,13 @@
             this.coberturasToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.coberturasToolStripMenuItem.Text = "Coberturas";
             this.coberturasToolStripMenuItem.Click += new System.EventHandler(this.coberturasToolStripMenuItem_Click);
+            // 
+            // pacientesPorEdadToolStripMenuItem
+            // 
+            this.pacientesPorEdadToolStripMenuItem.Name = "pacientesPorEdadToolStripMenuItem";
+            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pacientesPorEdadToolStripMenuItem.Text = "Pacientes por edad";
+            this.pacientesPorEdadToolStripMenuItem.Click += new System.EventHandler(this.pacientesPorEdadToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -123,5 +133,6 @@
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem coberturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horariosProfesionalesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pacientesPorEdadToolStripMenuItem;
     }
 }
