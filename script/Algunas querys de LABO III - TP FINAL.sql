@@ -148,3 +148,37 @@ RETURN
     FROM DatosPersonales DP
     WHERE DP.DNI = @DNI
 );
+
+select * from Paciente
+select * from Paciente where dni = 45678901
+select * from DatosPersonales where dni = 45678901
+
+CREATE VIEW vw_PacientesConTipo
+AS
+SELECT 
+    DP.DNI,
+    DP.Nombre,
+    DP.Apellido,
+    DATEDIFF(YEAR, DP.FechaNacimiento, GETDATE()) - 
+        CASE 
+            WHEN MONTH(DP.FechaNacimiento) > MONTH(GETDATE()) 
+                 OR (MONTH(DP.FechaNacimiento) = MONTH(GETDATE()) AND DAY(DP.FechaNacimiento) > DAY(GETDATE())) 
+            THEN 1 
+            ELSE 0 
+        END AS Edad,
+    CASE 
+        WHEN DATEDIFF(YEAR, DP.FechaNacimiento, GETDATE()) - 
+            CASE 
+                WHEN MONTH(DP.FechaNacimiento) > MONTH(GETDATE()) 
+                     OR (MONTH(DP.FechaNacimiento) = MONTH(GETDATE()) AND DAY(DP.FechaNacimiento) > DAY(GETDATE())) 
+                THEN 1 
+                ELSE 0 
+            END < 16 
+        THEN 'Paciente Pediátrico'
+        ELSE 'Paciente Adulto'
+    END AS TipoPaciente
+FROM DatosPersonales DP;
+
+SELECT * FROM vw_PacientesConTipo;
+
+select * from Turno
