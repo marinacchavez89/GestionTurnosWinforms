@@ -35,9 +35,11 @@
             this.horariosProfesionalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesPorEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvTurnos = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +92,13 @@
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
-            
+            // 
+            // pacientesPorEdadToolStripMenuItem
+            // 
+            this.pacientesPorEdadToolStripMenuItem.Name = "pacientesPorEdadToolStripMenuItem";
+            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.pacientesPorEdadToolStripMenuItem.Text = "Pacientes por edad";
+            this.pacientesPorEdadToolStripMenuItem.Click += new System.EventHandler(this.pacientesPorEdadToolStripMenuItem_Click);
             // 
             // coberturasToolStripMenuItem
             // 
@@ -99,26 +107,34 @@
             this.coberturasToolStripMenuItem.Text = "Coberturas";
             this.coberturasToolStripMenuItem.Click += new System.EventHandler(this.coberturasToolStripMenuItem_Click);
             // 
-            // pacientesPorEdadToolStripMenuItem
+            // dgvTurnos
             // 
-            this.pacientesPorEdadToolStripMenuItem.Name = "pacientesPorEdadToolStripMenuItem";
-            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pacientesPorEdadToolStripMenuItem.Text = "Pacientes por edad";
-            this.pacientesPorEdadToolStripMenuItem.Click += new System.EventHandler(this.pacientesPorEdadToolStripMenuItem_Click);
+            this.dgvTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTurnos.Location = new System.Drawing.Point(22, 158);
+            this.dgvTurnos.MultiSelect = false;
+            this.dgvTurnos.Name = "dgvTurnos";
+            this.dgvTurnos.ReadOnly = true;
+            this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTurnos.Size = new System.Drawing.Size(955, 314);
+            this.dgvTurnos.TabIndex = 1;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 573);
+            this.Controls.Add(this.dgvTurnos);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Turnos";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +150,6 @@
         private System.Windows.Forms.ToolStripMenuItem coberturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horariosProfesionalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pacientesPorEdadToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvTurnos;
     }
 }
