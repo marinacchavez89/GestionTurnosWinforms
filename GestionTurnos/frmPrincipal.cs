@@ -115,5 +115,11 @@ namespace GestionTurnos
         {
             dgvTurnos.Columns["idTurno"].Visible = false;
         }
+
+        private void recaudacionAnualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportesRecaudacionAnual ventana = new frmReportesRecaudacionAnual();
+            ventana.ShowDialog();
+        }
     }
 }

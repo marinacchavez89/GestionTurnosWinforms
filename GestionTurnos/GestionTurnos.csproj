@@ -106,6 +106,12 @@
     <Compile Include="frmReportesPacientes.Designer.cs">
       <DependentUpon>frmReportesPacientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesRecaudacionAnual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesRecaudacionAnual.Designer.cs">
+      <DependentUpon>frmReportesRecaudacionAnual.cs</DependentUpon>
+    </Compile>
     <Compile Include="HorariosProfesionales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesPacientes.resx">
       <DependentUpon>frmReportesPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesRecaudacionAnual.resx">
+      <DependentUpon>frmReportesRecaudacionAnual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HorariosProfesionales.resx">
       <DependentUpon>HorariosProfesionales.cs</DependentUpon>

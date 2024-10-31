@@ -182,3 +182,12 @@ FROM DatosPersonales DP;
 SELECT * FROM vw_PacientesConTipo;
 
 select * from Turno
+
+CREATE PROCEDURE SP_RecaudacionAnual
+    @Anio INT
+AS
+BEGIN
+
+    SELECT SUM(HonorarioConsulta) as RecaudacionAnual FROM Turno WHERE idEstadoTurno = 2
+	AND YEAR(FechaTurno) = @Anio
+END;

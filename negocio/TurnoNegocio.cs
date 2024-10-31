@@ -84,5 +84,34 @@ namespace negocio
 
             return lista;
         }
+
+        public decimal recaudacionAnual(int anio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearProcedimiento("SP_RecaudacionAnual");
+                datos.setearParametro("@Anio", anio);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return datos.Lector.IsDBNull(0) ? 0 : datos.Lector.GetDecimal(0);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

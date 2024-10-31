@@ -38,6 +38,7 @@
             this.pacientesPorEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTurnos = new System.Windows.Forms.DataGridView();
+            this.recaudacionAnualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,8 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pacientesPorEdadToolStripMenuItem});
+            this.pacientesPorEdadToolStripMenuItem,
+            this.recaudacionAnualToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -96,7 +98,7 @@
             // pacientesPorEdadToolStripMenuItem
             // 
             this.pacientesPorEdadToolStripMenuItem.Name = "pacientesPorEdadToolStripMenuItem";
-            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pacientesPorEdadToolStripMenuItem.Text = "Pacientes por edad";
             this.pacientesPorEdadToolStripMenuItem.Click += new System.EventHandler(this.pacientesPorEdadToolStripMenuItem_Click);
             // 
@@ -118,6 +120,13 @@
             this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTurnos.Size = new System.Drawing.Size(955, 314);
             this.dgvTurnos.TabIndex = 1;
+            // 
+            // recaudacionAnualToolStripMenuItem
+            // 
+            this.recaudacionAnualToolStripMenuItem.Name = "recaudacionAnualToolStripMenuItem";
+            this.recaudacionAnualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recaudacionAnualToolStripMenuItem.Text = "Recaudacion anual";
+            this.recaudacionAnualToolStripMenuItem.Click += new System.EventHandler(this.recaudacionAnualToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -151,5 +160,6 @@
         private System.Windows.Forms.ToolStripMenuItem horariosProfesionalesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pacientesPorEdadToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvTurnos;
+        private System.Windows.Forms.ToolStripMenuItem recaudacionAnualToolStripMenuItem;
     }
 }
