@@ -191,3 +191,29 @@ BEGIN
     SELECT SUM(HonorarioConsulta) as RecaudacionAnual FROM Turno WHERE idEstadoTurno = 2
 	AND YEAR(FechaTurno) = @Anio
 END;
+
+CREATE TRIGGER trg_PreventDeleteEspecialidad
+ON Especialidad
+INSTEAD OF DELETE
+AS
+BEGIN
+    -- Este pedazo verifica si algun idEspecialidad a eliminar está asociado en Profesional_Especialidad o Profesional
+    IF EXISTS (
+        SELECT 1
+        FROM deleted d
+        LEFT JOIN Profesional_Especialidad pe ON d.idEspecialidad = pe.idEspecialidad
+        LEFT JOIN Profesional p ON d.idEspecialidad = p.idEspecialidad
+        WHERE pe.idEspecialidad IS NOT NULL OR p.idEspecialidad IS NOT NULL
+    )
+    BEGIN
+        -- Ahora si existe, te impide la eliminación y te muestre un mensaje de error amigable RAISEERROR es un error configurable y creo que de 16 a 25 son errores de usuario, el 1 siguiente es el numero de error que nosotros le asignamos
+        RAISERROR ('No se puede eliminar la especialidad porque está asociada a un profesional.', 16, 1);
+        ROLLBACK;
+    END
+    ELSE
+    BEGIN
+        -- Pero si no existe asociación, te hace la eliminación
+        DELETE FROM Especialidad
+        WHERE idEspecialidad IN (SELECT idEspecialidad FROM deleted);
+    END
+END;
