@@ -48,7 +48,7 @@ namespace GestionTurnos
                 {
                     profesional.Especialidad = new Especialidad
                     {
-                        Descripcion = "Sin Especialidad"                        
+                        Descripcion = "Sin Especialidad"
                     };
                 }
 
@@ -87,7 +87,7 @@ namespace GestionTurnos
 
         private void btnAgregarProfesional_Click(object sender, EventArgs e)
         {
-            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);            
+            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);
             ventana.ShowDialog();
         }
 
@@ -98,8 +98,39 @@ namespace GestionTurnos
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);            
+            frmModificarProfesional ventana = new frmModificarProfesional(listaEspecialidad);
             ventana.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvProfesional.SelectedRows.Count > 0)
+            {
+                var seleccionado = (ProfesionalViewModel)dgvProfesional.SelectedRows[0].DataBoundItem;
+                int matricula = seleccionado.Matricula;
+
+                DialogResult resultado = MessageBox.Show("¿Está seguro de que desea eliminar este profesional?", "Confirmación", MessageBoxButtons.YesNo);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ProfesionalNegocio negocio = new ProfesionalNegocio();
+                    try
+                    {
+                        negocio.eliminarProfesional(matricula);
+                        MessageBox.Show("Profesional eliminado con éxito.");
+                        
+                        frmProfesional_Load(sender, e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al eliminar profesional: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un profesional para eliminar.");
+            }
         }
     }
 }

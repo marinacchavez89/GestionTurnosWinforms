@@ -232,3 +232,29 @@ select * from UsuarioAdmin
 UPDATE UsuarioAdmin 
 SET PasswordHash = 0x9581CC6CCD7D9F00794AE3C54D51EE206ED44A7403D18948F4E5A4BF684CE279
 WHERE Id = 1;
+
+BEGIN TRANSACTION;
+
+BEGIN TRY   
+    DELETE FROM HorariosProfesionales
+    WHERE idMatricula = 123;
+   
+    DELETE FROM Profesional
+    WHERE Matricula = 123;
+
+    COMMIT TRANSACTION;
+END TRY
+BEGIN CATCH
+    ROLLBACK TRANSACTION;
+    PRINT ERROR_MESSAGE();
+END CATCH;
+
+INSERT INTO DatosPersonales (DNI, Nombre, Apellido, FechaNacimiento, idDireccion, Email, Telefono) VALUES 
+(33333333, 'Prueba', 'Prueba', '1985-05-15', 1, 'prueba.prueba@gmail.com', '11111111111')
+
+
+INSERT INTO Profesional (Matricula, idEspecialidad, Honorario, DNI) VALUES 
+(1111, 1, 5000, 33333333)
+
+INSERT INTO HorariosProfesionales (idMatricula, idConsultorio, DiaAtencion, HoraInicio, HoraFin) VALUES 
+(1111, 1, 1, '09:00', '12:00')

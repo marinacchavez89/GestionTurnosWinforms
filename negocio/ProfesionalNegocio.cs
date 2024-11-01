@@ -87,7 +87,7 @@ namespace negocio
             return lista;
         }
 
-        
+
 
         public List<Profesional> listarConHorarios()
         {
@@ -155,6 +155,39 @@ namespace negocio
             }
 
             return lista;
+        }
+
+        public void eliminarProfesional(int matricula)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = @"BEGIN TRANSACTION; BEGIN TRY DELETE FROM HorariosProfesionales
+                                WHERE idMatricula = @Matricula;
+
+                                DELETE FROM Profesional
+                                WHERE Matricula = @Matricula;
+
+                                COMMIT TRANSACTION;
+                                END TRY
+                                BEGIN CATCH
+                                    ROLLBACK TRANSACTION;
+                                    PRINT ERROR_MESSAGE();
+                                END CATCH;";
+
+            datos.setearConsulta(consulta);
+            datos.setearParametro("@Matricula", matricula);
+
+            try
+            {
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }
