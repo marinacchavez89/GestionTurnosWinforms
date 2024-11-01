@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
+using System.IO;
 
 namespace GestionTurnos
 {
@@ -59,6 +60,9 @@ namespace GestionTurnos
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            string imagePath = Path.Combine(Application.StartupPath, "Resources", "portada.png");
+            pbxPortada.Load(imagePath);
+
             TurnoNegocio negocio = new TurnoNegocio();
             listaTurno = negocio.listar();
 

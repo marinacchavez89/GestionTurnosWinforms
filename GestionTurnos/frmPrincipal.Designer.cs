@@ -36,11 +36,13 @@
             this.administrarEspecialidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesPorEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recaudacionAnualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.coberturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvTurnos = new System.Windows.Forms.DataGridView();
-            this.recaudacionAnualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbxPortada = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPortada)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -98,9 +100,16 @@
             // pacientesPorEdadToolStripMenuItem
             // 
             this.pacientesPorEdadToolStripMenuItem.Name = "pacientesPorEdadToolStripMenuItem";
-            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pacientesPorEdadToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.pacientesPorEdadToolStripMenuItem.Text = "Pacientes por edad";
             this.pacientesPorEdadToolStripMenuItem.Click += new System.EventHandler(this.pacientesPorEdadToolStripMenuItem_Click);
+            // 
+            // recaudacionAnualToolStripMenuItem
+            // 
+            this.recaudacionAnualToolStripMenuItem.Name = "recaudacionAnualToolStripMenuItem";
+            this.recaudacionAnualToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.recaudacionAnualToolStripMenuItem.Text = "Recaudacion anual";
+            this.recaudacionAnualToolStripMenuItem.Click += new System.EventHandler(this.recaudacionAnualToolStripMenuItem_Click);
             // 
             // coberturasToolStripMenuItem
             // 
@@ -111,28 +120,40 @@
             // 
             // dgvTurnos
             // 
+            this.dgvTurnos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTurnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTurnos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTurnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTurnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurnos.Location = new System.Drawing.Point(22, 158);
+            this.dgvTurnos.GridColor = System.Drawing.Color.White;
+            this.dgvTurnos.Location = new System.Drawing.Point(12, 323);
             this.dgvTurnos.MultiSelect = false;
             this.dgvTurnos.Name = "dgvTurnos";
             this.dgvTurnos.ReadOnly = true;
+            this.dgvTurnos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTurnos.Size = new System.Drawing.Size(955, 314);
             this.dgvTurnos.TabIndex = 1;
             // 
-            // recaudacionAnualToolStripMenuItem
+            // pbxPortada
             // 
-            this.recaudacionAnualToolStripMenuItem.Name = "recaudacionAnualToolStripMenuItem";
-            this.recaudacionAnualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.recaudacionAnualToolStripMenuItem.Text = "Recaudacion anual";
-            this.recaudacionAnualToolStripMenuItem.Click += new System.EventHandler(this.recaudacionAnualToolStripMenuItem_Click);
+            this.pbxPortada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbxPortada.InitialImage = null;
+            this.pbxPortada.Location = new System.Drawing.Point(12, 45);
+            this.pbxPortada.Name = "pbxPortada";
+            this.pbxPortada.Size = new System.Drawing.Size(955, 244);
+            this.pbxPortada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxPortada.TabIndex = 2;
+            this.pbxPortada.TabStop = false;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 573);
+            this.ClientSize = new System.Drawing.Size(989, 366);
+            this.Controls.Add(this.pbxPortada);
             this.Controls.Add(this.dgvTurnos);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -140,10 +161,12 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Turnos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTurnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxPortada)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +184,6 @@
         private System.Windows.Forms.ToolStripMenuItem pacientesPorEdadToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvTurnos;
         private System.Windows.Forms.ToolStripMenuItem recaudacionAnualToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbxPortada;
     }
 }

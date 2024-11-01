@@ -161,7 +161,7 @@ namespace GestionTurnos
                 cboProvincia.SelectedValue = paciente.DatosPersonales.Direccion.Ciudad.Provincia.IdProvincia;
 
                 // Cargar las ciudades de la provincia seleccionada
-                cargarCiudades((int)cboProvincia.SelectedValue);
+                //cargarCiudades((int)cboProvincia.SelectedValue);
             }
             else
             {

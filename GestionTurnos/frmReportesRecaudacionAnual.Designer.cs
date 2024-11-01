@@ -39,7 +39,7 @@
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(80, 31);
+            this.txtAnio.Location = new System.Drawing.Point(183, 51);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(109, 20);
             this.txtAnio.TabIndex = 0;
@@ -47,7 +47,7 @@
             // lblAnio
             // 
             this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(32, 34);
+            this.lblAnio.Location = new System.Drawing.Point(135, 54);
             this.lblAnio.Name = "lblAnio";
             this.lblAnio.Size = new System.Drawing.Size(33, 13);
             this.lblAnio.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnReporteRecaudacionSalir
             // 
-            this.btnReporteRecaudacionSalir.Location = new System.Drawing.Point(506, 339);
+            this.btnReporteRecaudacionSalir.Location = new System.Drawing.Point(305, 313);
             this.btnReporteRecaudacionSalir.Name = "btnReporteRecaudacionSalir";
             this.btnReporteRecaudacionSalir.Size = new System.Drawing.Size(75, 23);
             this.btnReporteRecaudacionSalir.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             // btnReporteRecaudacionBuscar
             // 
-            this.btnReporteRecaudacionBuscar.Location = new System.Drawing.Point(208, 29);
+            this.btnReporteRecaudacionBuscar.Location = new System.Drawing.Point(311, 49);
             this.btnReporteRecaudacionBuscar.Name = "btnReporteRecaudacionBuscar";
             this.btnReporteRecaudacionBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnReporteRecaudacionBuscar.TabIndex = 3;
@@ -75,20 +75,22 @@
             // 
             // dgvRecaudacionAnual
             // 
+            this.dgvRecaudacionAnual.BackgroundColor = System.Drawing.Color.White;
+            this.dgvRecaudacionAnual.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvRecaudacionAnual.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecaudacionAnual.Location = new System.Drawing.Point(175, 120);
+            this.dgvRecaudacionAnual.Location = new System.Drawing.Point(140, 119);
             this.dgvRecaudacionAnual.MultiSelect = false;
             this.dgvRecaudacionAnual.Name = "dgvRecaudacionAnual";
             this.dgvRecaudacionAnual.ReadOnly = true;
             this.dgvRecaudacionAnual.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecaudacionAnual.Size = new System.Drawing.Size(240, 150);
+            this.dgvRecaudacionAnual.Size = new System.Drawing.Size(246, 150);
             this.dgvRecaudacionAnual.TabIndex = 4;
             // 
             // frmReportesRecaudacionAnual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 385);
+            this.ClientSize = new System.Drawing.Size(521, 385);
             this.Controls.Add(this.dgvRecaudacionAnual);
             this.Controls.Add(this.btnReporteRecaudacionBuscar);
             this.Controls.Add(this.btnReporteRecaudacionSalir);
