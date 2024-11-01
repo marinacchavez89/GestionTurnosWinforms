@@ -118,6 +118,12 @@
     <Compile Include="HorariosProfesionales.Designer.cs">
       <DependentUpon>HorariosProfesionales.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginCobertura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginCobertura.Designer.cs">
+      <DependentUpon>LoginCobertura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCobertura.resx">
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HorariosProfesionales.resx">
       <DependentUpon>HorariosProfesionales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginCobertura.resx">
+      <DependentUpon>LoginCobertura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

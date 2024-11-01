@@ -217,3 +217,18 @@ BEGIN
         WHERE idEspecialidad IN (SELECT idEspecialidad FROM deleted);
     END
 END;
+
+CREATE TABLE UsuarioAdmin (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Legajo INT NOT NULL UNIQUE,
+    PasswordHash VARBINARY(64) NOT NULL    
+);
+
+INSERT INTO UsuarioAdmin (Legajo, PasswordHash)
+VALUES (45891, HASHBYTES('SHA2_256', 'miContraseñaSegura'));
+
+select * from UsuarioAdmin
+
+UPDATE UsuarioAdmin 
+SET PasswordHash = 0x9581CC6CCD7D9F00794AE3C54D51EE206ED44A7403D18948F4E5A4BF684CE279
+WHERE Id = 1;
